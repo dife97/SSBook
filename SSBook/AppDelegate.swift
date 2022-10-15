@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import Apollo
+
+let apolloClient = ApolloClient(url: URL(string: "https://us-central1-ss-devops.cloudfunctions.net/GraphQL")!)
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
