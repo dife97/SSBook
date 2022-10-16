@@ -15,6 +15,8 @@ class HomeViewController: UIViewController {
         
         view.backgroundColor = UIColor(named: "mainBackground")
         
+        configureNavigationBar()
+        
         configureTabBar()
         
 //        apolloClient.fetch(query: FavoriteBooksQuery()) { result in
@@ -36,6 +38,21 @@ class HomeViewController: UIViewController {
 //                print("Author name = \(item.name) and Book count = \(item.booksCount)")
 //            }
 //        }
+    }
+    
+    private func configureNavigationBar() {
+        
+        let logoImageView = UIImageView(image: UIImage(named: "logo"))
+        logoImageView.frame = CGRect(x: 0, y: 0, width: 78, height: 44)
+        logoImageView.contentMode = .scaleAspectFit
+        
+        let userPictureImageView = UIImageView(image: UIImage(systemName: "person.circle.fill"))
+        userPictureImageView.tintColor = UIColor(named: "mainGray")
+        userPictureImageView.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
+        userPictureImageView.contentMode = .scaleAspectFit
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: logoImageView)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: userPictureImageView)
     }
     
     private func configureTabBar() {
