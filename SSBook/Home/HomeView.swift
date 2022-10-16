@@ -69,6 +69,8 @@ class HomeView: UIView {
         return view
     }()
     
+    var myBooksView = MyBooksView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -86,6 +88,8 @@ class HomeView: UIView {
         configureTitleLabels()
         
         configureUnderlineView()
+        
+        configureMyBooksView()
     }
     
     private func configureHeaderView() {
@@ -97,12 +101,12 @@ class HomeView: UIView {
         
         NSLayoutConstraint.activate([
             
-            headerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
+            headerView.topAnchor.constraint(equalTo: topAnchor),
             headerView.leadingAnchor.constraint(equalTo: leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 128),
+            headerView.heightAnchor.constraint(equalToConstant: 168),
             
-            logoImageView.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 12),
+            logoImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 12),
             logoImageView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20),
             logoImageView.heightAnchor.constraint(equalToConstant: 44),
             logoImageView.widthAnchor.constraint(equalToConstant: 78),
@@ -137,6 +141,18 @@ class HomeView: UIView {
             underlineView.centerXAnchor.constraint(equalTo: myBookTitleButton.centerXAnchor),
             underlineView.heightAnchor.constraint(equalToConstant: 4),
             underlineView.widthAnchor.constraint(equalToConstant: 94)
+        ])
+    }
+    
+    private func configureMyBooksView() {
+        
+        addSubview(myBooksView)
+        
+        NSLayoutConstraint.activate([
+            myBooksView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 0),
+            myBooksView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            myBooksView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            myBooksView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
     

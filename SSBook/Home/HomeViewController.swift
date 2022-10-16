@@ -10,9 +10,11 @@ import Apollo
 
 class HomeViewController: UIViewController {
 
+    let homeView = HomeView()
+    
     override func loadView() {
         
-        view = HomeView()
+        view = homeView
 
         view.backgroundColor = UIColor(named: "mainBackground")
     }
@@ -49,20 +51,19 @@ class HomeViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
     }
     
-//    private func configureNavigationBar() {
-//
-//        let logoImageView = UIImageView(image: UIImage(named: "logo"))
-//        logoImageView.frame = CGRect(x: 0, y: 0, width: 78, height: 44)
-//        logoImageView.contentMode = .scaleAspectFit
-//
-//        let userPictureImageView = UIImageView(image: UIImage(systemName: "person.circle.fill"))
-//        userPictureImageView.tintColor = UIColor(named: "mainGray")
-//        userPictureImageView.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
-//        userPictureImageView.contentMode = .scaleAspectFit
-//
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: logoImageView)
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: userPictureImageView)
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        setScrollViewContentSize()
+    }
+    
+    private func setScrollViewContentSize() {
+        
+        let height: CGFloat = homeView.myBooksView.topButton.frame.size.height + homeView.myBooksView.bottomButton.frame.size.height + 100
+        
+        homeView.myBooksView.scrollView.contentSize = CGSize(width: homeView.myBooksView.frame.size.width, height: height)
+        homeView.myBooksView.containerView.heightAnchor.constraint(equalToConstant: height).isActive = true
+    }
     
     private func configureTabBar() {
         
