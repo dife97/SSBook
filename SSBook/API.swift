@@ -354,3 +354,133 @@ public final class FavoriteBooksQuery: GraphQLQuery {
     }
   }
 }
+
+public final class FavoriteAuthorsQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query FavoriteAuthors {
+      favoriteAuthors {
+        __typename
+        id
+        name
+        picture
+        booksCount
+        isFavorite
+      }
+    }
+    """
+
+  public let operationName: String = "FavoriteAuthors"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("favoriteAuthors", type: .nonNull(.list(.nonNull(.object(FavoriteAuthor.selections))))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(favoriteAuthors: [FavoriteAuthor]) {
+      self.init(unsafeResultMap: ["__typename": "Query", "favoriteAuthors": favoriteAuthors.map { (value: FavoriteAuthor) -> ResultMap in value.resultMap }])
+    }
+
+    public var favoriteAuthors: [FavoriteAuthor] {
+      get {
+        return (resultMap["favoriteAuthors"] as! [ResultMap]).map { (value: ResultMap) -> FavoriteAuthor in FavoriteAuthor(unsafeResultMap: value) }
+      }
+      set {
+        resultMap.updateValue(newValue.map { (value: FavoriteAuthor) -> ResultMap in value.resultMap }, forKey: "favoriteAuthors")
+      }
+    }
+
+    public struct FavoriteAuthor: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Author"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+          GraphQLField("name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("picture", type: .nonNull(.scalar(String.self))),
+          GraphQLField("booksCount", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("isFavorite", type: .nonNull(.scalar(Bool.self))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(id: GraphQLID, name: String, picture: String, booksCount: Int, isFavorite: Bool) {
+        self.init(unsafeResultMap: ["__typename": "Author", "id": id, "name": name, "picture": picture, "booksCount": booksCount, "isFavorite": isFavorite])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var id: GraphQLID {
+        get {
+          return resultMap["id"]! as! GraphQLID
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      public var name: String {
+        get {
+          return resultMap["name"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "name")
+        }
+      }
+
+      public var picture: String {
+        get {
+          return resultMap["picture"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "picture")
+        }
+      }
+
+      public var booksCount: Int {
+        get {
+          return resultMap["booksCount"]! as! Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "booksCount")
+        }
+      }
+
+      public var isFavorite: Bool {
+        get {
+          return resultMap["isFavorite"]! as! Bool
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "isFavorite")
+        }
+      }
+    }
+  }
+}

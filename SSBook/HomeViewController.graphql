@@ -18,3 +18,13 @@ query FavoriteBooks {
         category
     }
 }
+
+query FavoriteAuthors {
+    favoriteAuthors {
+        id
+        name
+        picture
+        booksCount
+        isFavorite
+    }
+}

@@ -17,8 +17,39 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         
-        window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
+        window?.rootViewController = createTabBarController()
         
         window?.makeKeyAndVisible()
+    }
+    
+    private func createTabBarController() -> UITabBarController {
+        
+        let tabBarController = UITabBarController()
+        
+        tabBarController.tabBar.backgroundColor = .white
+        tabBarController.tabBar.tintColor = UIColor(named: "mainPurple")
+        tabBarController.tabBar.unselectedItemTintColor = UIColor(named: "mainGray")
+        tabBarController.tabBar.isTranslucent = false
+        
+        tabBarController.viewControllers = [
+            UINavigationController(rootViewController: HomeViewController()),
+            
+            DummyViewController(title: "Adicionar",
+                                tabBarItem: UITabBarItem(title: "Adicionar",
+                                                         image: UIImage(named: "addTabBarIcon"),
+                                                         tag: 1)),
+            
+            DummyViewController(title: "Buscar",
+                                tabBarItem: UITabBarItem(title: "Buscar",
+                                                         image: UIImage(named: "searchTabBarIcon"),
+                                                         tag: 2)),
+            
+            DummyViewController(title: "Favoritos",
+                                tabBarItem: UITabBarItem(title: "Favoritos",
+                                                         image: UIImage(named: "heartTabBarIcon"),
+                                                         tag: 3))
+        ]
+        
+        return tabBarController
     }
 }
