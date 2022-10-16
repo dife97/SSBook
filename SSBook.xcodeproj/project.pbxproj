@@ -12,6 +12,13 @@
 		310ADD1828FB7EB300DB748B /* HomeViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 310ADD1728FB7EB300DB748B /* HomeViewController.graphql */; };
 		310ADD1B28FB7F5400DB748B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310ADD1A28FB7F5400DB748B /* API.swift */; };
 		310ADD1D28FC14C100DB748B /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310ADD1C28FC14C000DB748B /* DummyViewController.swift */; };
+		310ADD2028FC311300DB748B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310ADD1F28FC311300DB748B /* HomeView.swift */; };
+		310ADD2228FC317400DB748B /* MyBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310ADD2128FC317400DB748B /* MyBooksView.swift */; };
+		310ADD2428FC31C100DB748B /* BorrowedBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310ADD2328FC31C100DB748B /* BorrowedBooksView.swift */; };
+		310ADD2728FC445200DB748B /* SSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310ADD2628FC445200DB748B /* SSButton.swift */; };
+		310ADD2C28FC48A300DB748B /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 310ADD2928FC48A300DB748B /* Roboto-Medium.ttf */; };
+		310ADD2D28FC48A300DB748B /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 310ADD2A28FC48A300DB748B /* Roboto-Regular.ttf */; };
+		310ADD2E28FC48A300DB748B /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 310ADD2B28FC48A300DB748B /* Roboto-Bold.ttf */; };
 		31EAA19228FB7CEE00F95DCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAA19128FB7CEE00F95DCB /* AppDelegate.swift */; };
 		31EAA19428FB7CEE00F95DCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAA19328FB7CEE00F95DCB /* SceneDelegate.swift */; };
 		31EAA19628FB7CEE00F95DCB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAA19528FB7CEE00F95DCB /* HomeViewController.swift */; };
@@ -24,6 +31,13 @@
 		310ADD1728FB7EB300DB748B /* HomeViewController.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HomeViewController.graphql; sourceTree = "<group>"; };
 		310ADD1A28FB7F5400DB748B /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		310ADD1C28FC14C000DB748B /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
+		310ADD1F28FC311300DB748B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		310ADD2128FC317400DB748B /* MyBooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBooksView.swift; sourceTree = "<group>"; };
+		310ADD2328FC31C100DB748B /* BorrowedBooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorrowedBooksView.swift; sourceTree = "<group>"; };
+		310ADD2628FC445200DB748B /* SSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSButton.swift; sourceTree = "<group>"; };
+		310ADD2928FC48A300DB748B /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		310ADD2A28FC48A300DB748B /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		310ADD2B28FC48A300DB748B /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		31EAA18E28FB7CEE00F95DCB /* SSBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31EAA19128FB7CEE00F95DCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31EAA19328FB7CEE00F95DCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +59,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		310ADD1E28FC30DE00DB748B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				31EAA19528FB7CEE00F95DCB /* HomeViewController.swift */,
+				310ADD1728FB7EB300DB748B /* HomeViewController.graphql */,
+				310ADD1F28FC311300DB748B /* HomeView.swift */,
+				310ADD2128FC317400DB748B /* MyBooksView.swift */,
+				310ADD2328FC31C100DB748B /* BorrowedBooksView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		310ADD2528FC441E00DB748B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				310ADD2628FC445200DB748B /* SSButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		310ADD2828FC48A300DB748B /* Roboto */ = {
+			isa = PBXGroup;
+			children = (
+				310ADD2928FC48A300DB748B /* Roboto-Medium.ttf */,
+				310ADD2A28FC48A300DB748B /* Roboto-Regular.ttf */,
+				310ADD2B28FC48A300DB748B /* Roboto-Bold.ttf */,
+			);
+			path = Roboto;
+			sourceTree = "<group>";
+		};
 		31EAA18528FB7CEE00F95DCB = {
 			isa = PBXGroup;
 			children = (
@@ -67,13 +111,14 @@
 				31EAA19128FB7CEE00F95DCB /* AppDelegate.swift */,
 				31EAA19328FB7CEE00F95DCB /* SceneDelegate.swift */,
 				310ADD1A28FB7F5400DB748B /* API.swift */,
-				31EAA19528FB7CEE00F95DCB /* HomeViewController.swift */,
-				310ADD1728FB7EB300DB748B /* HomeViewController.graphql */,
+				310ADD1C28FC14C000DB748B /* DummyViewController.swift */,
+				310ADD1E28FC30DE00DB748B /* Home */,
+				310ADD2528FC441E00DB748B /* Components */,
+				310ADD2828FC48A300DB748B /* Roboto */,
 				310ADD1528FB7EA800DB748B /* schema.json */,
 				31EAA19A28FB7CEF00F95DCB /* Assets.xcassets */,
 				31EAA19C28FB7CEF00F95DCB /* LaunchScreen.storyboard */,
 				31EAA19F28FB7CEF00F95DCB /* Info.plist */,
-				310ADD1C28FC14C000DB748B /* DummyViewController.swift */,
 			);
 			path = SSBook;
 			sourceTree = "<group>";
@@ -143,6 +188,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				310ADD2E28FC48A300DB748B /* Roboto-Bold.ttf in Resources */,
+				310ADD2D28FC48A300DB748B /* Roboto-Regular.ttf in Resources */,
+				310ADD2C28FC48A300DB748B /* Roboto-Medium.ttf in Resources */,
 				31EAA19E28FB7CEF00F95DCB /* LaunchScreen.storyboard in Resources */,
 				310ADD1628FB7EA800DB748B /* schema.json in Resources */,
 				31EAA19B28FB7CEF00F95DCB /* Assets.xcassets in Resources */,
@@ -181,8 +229,12 @@
 				31EAA19628FB7CEE00F95DCB /* HomeViewController.swift in Sources */,
 				31EAA19228FB7CEE00F95DCB /* AppDelegate.swift in Sources */,
 				310ADD1B28FB7F5400DB748B /* API.swift in Sources */,
+				310ADD2028FC311300DB748B /* HomeView.swift in Sources */,
 				310ADD1D28FC14C100DB748B /* DummyViewController.swift in Sources */,
+				310ADD2228FC317400DB748B /* MyBooksView.swift in Sources */,
 				31EAA19428FB7CEE00F95DCB /* SceneDelegate.swift in Sources */,
+				310ADD2428FC31C100DB748B /* BorrowedBooksView.swift in Sources */,
+				310ADD2728FC445200DB748B /* SSButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,12 +10,15 @@ import Apollo
 
 class HomeViewController: UIViewController {
 
+    override func loadView() {
+        
+        view = HomeView()
+
+        view.backgroundColor = UIColor(named: "mainBackground")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = UIColor(named: "mainBackground")
-        
-        configureNavigationBar()
         
         configureTabBar()
         
@@ -40,20 +43,26 @@ class HomeViewController: UIViewController {
 //        }
     }
     
-    private func configureNavigationBar() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        let logoImageView = UIImageView(image: UIImage(named: "logo"))
-        logoImageView.frame = CGRect(x: 0, y: 0, width: 78, height: 44)
-        logoImageView.contentMode = .scaleAspectFit
-        
-        let userPictureImageView = UIImageView(image: UIImage(systemName: "person.circle.fill"))
-        userPictureImageView.tintColor = UIColor(named: "mainGray")
-        userPictureImageView.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
-        userPictureImageView.contentMode = .scaleAspectFit
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: logoImageView)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: userPictureImageView)
+        navigationController?.isNavigationBarHidden = true
     }
+    
+//    private func configureNavigationBar() {
+//
+//        let logoImageView = UIImageView(image: UIImage(named: "logo"))
+//        logoImageView.frame = CGRect(x: 0, y: 0, width: 78, height: 44)
+//        logoImageView.contentMode = .scaleAspectFit
+//
+//        let userPictureImageView = UIImageView(image: UIImage(systemName: "person.circle.fill"))
+//        userPictureImageView.tintColor = UIColor(named: "mainGray")
+//        userPictureImageView.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
+//        userPictureImageView.contentMode = .scaleAspectFit
+//
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: logoImageView)
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: userPictureImageView)
+//    }
     
     private func configureTabBar() {
         
