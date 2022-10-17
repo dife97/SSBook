@@ -57,12 +57,16 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        setScrollViewContentSize()
+        configureScrollViewContentSize()
     }
     
-    private func setScrollViewContentSize() {
+    private func configureScrollViewContentSize() {
         
-        let height: CGFloat = homeView.myBooksView.favoriteBooksView.frame.size.height + homeView.myBooksView.favoriteAuthorsView.frame.size.height + 100
+        let favoriteBooksViewHeight = homeView.myBooksView.favoriteBooksView.frame.size.height
+        let favoriteAuthorsViewHeight = homeView.myBooksView.favoriteAuthorsView.frame.size.height
+        let libraryViewHeight = homeView.myBooksView.libraryView.frame.size.height
+        
+        let height: CGFloat = favoriteBooksViewHeight + favoriteAuthorsViewHeight + libraryViewHeight
         
         homeView.myBooksView.scrollView.contentSize = CGSize(width: homeView.myBooksView.frame.size.width, height: height)
         homeView.myBooksView.containerView.heightAnchor.constraint(equalToConstant: height).isActive = true
@@ -79,8 +83,7 @@ class HomeViewController: UIViewController {
     
     private func configureCollectionViews() {
         
-        homeView.myBooksView.configureFavoriteBooksCollectionView(delegate: self, dataSource: self)
-        homeView.myBooksView.configureFavoriteAuthorsCollectionView(delegate: self, dataSource: self)
+        homeView.myBooksView.configureMyBooksCollectionViews(delegate: self, dataSource: self)
     }
 }
 
@@ -122,6 +125,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return cell ?? UICollectionViewCell()
         }
         
+        if collectionView == homeView.myBooksView.categoryMenuCollectionView {
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier,
+                                                          for: indexPath) as? CategoryCollectionViewCell
+            
+            
+            return cell ?? UICollectionViewCell()
+        }
+        
         return UICollectionViewCell()
     }
     
@@ -135,6 +147,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         if collectionView == homeView.myBooksView.favoriteAuthorsCollectionView {
             return CGSize(width: 248, height: 69)
+        }
+        
+        if collectionView == homeView.myBooksView.categoryMenuCollectionView {
+            return CGSize(width: 92, height: 32)
         }
         
         return CGSize()

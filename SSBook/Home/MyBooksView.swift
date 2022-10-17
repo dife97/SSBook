@@ -13,7 +13,8 @@ class MyBooksView: UIView {
         let scrollView = UIScrollView()
 
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.backgroundColor = .systemGreen
+        scrollView.backgroundColor = UIColor(named: "mainBackground")
+//        scrollView.backgroundColor = .systemGreen
 
         return scrollView
     }()
@@ -109,6 +110,38 @@ class MyBooksView: UIView {
         return collectionView
     }()
     
+    lazy var libraryView: UIView = {
+        let view = UIView()
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        
+        return view
+    }()
+    
+    let librayTitleLabel = SSLabel(text: "Biblioteca")
+    
+    lazy var categoryMenuCollectionView: UICollectionView = {
+        let collectionView = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: UICollectionViewLayout()
+        )
+        
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.delaysContentTouches = false
+        collectionView.backgroundColor = .white
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        collectionView.setCollectionViewLayout(layout, animated: true)
+        
+        collectionView.register(CategoryCollectionViewCell.self,
+                                forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
+        
+        return collectionView
+    }()
     
     /*
      libraryView
@@ -204,7 +237,7 @@ class MyBooksView: UIView {
             favoriteAuthorsView.topAnchor.constraint(equalTo: favoriteBooksView.bottomAnchor),
             favoriteAuthorsView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             favoriteAuthorsView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            favoriteAuthorsView.heightAnchor.constraint(equalToConstant: 600),
+            favoriteAuthorsView.heightAnchor.constraint(equalToConstant: 175),
 
             favoriteAuthorsLabel.topAnchor.constraint(equalTo: favoriteAuthorsView.topAnchor, constant: 32),
             favoriteAuthorsLabel.leadingAnchor.constraint(equalTo: favoriteAuthorsView.leadingAnchor, constant: 20),
@@ -221,19 +254,37 @@ class MyBooksView: UIView {
     
     private func configureLibraryView() {
         
+        libraryView.addSubview(librayTitleLabel)
+        libraryView.addSubview(categoryMenuCollectionView)
         
+        scrollView.addSubview(libraryView)
+        
+        NSLayoutConstraint.activate([
+            libraryView.topAnchor.constraint(equalTo: favoriteAuthorsView.bottomAnchor),
+            libraryView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            libraryView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            libraryView.heightAnchor.constraint(equalToConstant: 800),
+            
+            librayTitleLabel.topAnchor.constraint(equalTo: libraryView.topAnchor),
+            librayTitleLabel.leadingAnchor.constraint(equalTo: libraryView.leadingAnchor, constant: 20),
+
+            categoryMenuCollectionView.topAnchor.constraint(equalTo: librayTitleLabel.bottomAnchor, constant: 21),
+            categoryMenuCollectionView.leadingAnchor.constraint(equalTo: libraryView.leadingAnchor, constant: 20),
+            categoryMenuCollectionView.trailingAnchor.constraint(equalTo: libraryView.trailingAnchor),
+            categoryMenuCollectionView.heightAnchor.constraint(equalToConstant: 32)
+        ])
     }
     
-    func configureFavoriteBooksCollectionView(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
+    func configureMyBooksCollectionViews(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
         
         favoriteBooksCollectionView.delegate = delegate
         favoriteBooksCollectionView.dataSource = dataSource
-    }
-    
-    func configureFavoriteAuthorsCollectionView(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
         
         favoriteAuthorsCollectionView.delegate = delegate
         favoriteAuthorsCollectionView.dataSource = dataSource
+        
+        categoryMenuCollectionView.delegate = delegate
+        categoryMenuCollectionView.dataSource = dataSource
     }
     
     private func additionalConfiguration() {
