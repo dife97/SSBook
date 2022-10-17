@@ -24,6 +24,9 @@ class HomeViewController: UIViewController {
         
         configureTabBar()
         
+        configureFavoriteBooksCollectionView()
+        
+        
 //        apolloClient.fetch(query: FavoriteBooksQuery()) { result in
 //
 //            guard let data = try? result.get().data else { return }
@@ -72,5 +75,31 @@ class HomeViewController: UIViewController {
             image: UIImage(named: "homeTabBarIcon"),
             tag: 0
         )
+    }
+    
+    private func configureFavoriteBooksCollectionView() {
+        
+        homeView.myBooksView.configureFavoriteBooksCollectionView(delegate: self, dataSource: self)
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+              
+        return 7
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteBookCollectionViewCell.identifier, for: indexPath) as? FavoriteBookCollectionViewCell
+        
+        
+        return cell ?? UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: 136, height: 262)
     }
 }

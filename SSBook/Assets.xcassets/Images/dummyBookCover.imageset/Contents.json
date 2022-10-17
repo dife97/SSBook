@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "dummyBookCover.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

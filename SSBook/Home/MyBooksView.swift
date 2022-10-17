@@ -40,24 +40,32 @@ class MyBooksView: UIView {
     lazy var seeAllFavoriteBooksButton: SSButton = {
         let button = SSButton(title: "ver todos", titleColorName: "mainPurple")
 
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.buttonAction = { self.didTapSeeAllFavoriteBooksButton() }
 
         return button
     }()
 
-    
-    /*
-     favoriteBooksView
-        - favoriteBooksLabel
-        - seeAllFavoriteBooksButton
-        - favoriteBooksCollectionView
-                - favoriteBookCollectionViewCell
-                        - bookCoverImageView
-                        - bookTitleLabel
-                        - authorLabel
-     
-     */
+    lazy var favoriteBooksCollectionView: UICollectionView = {
+        let collectionView = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: UICollectionViewLayout()
+        )
+        
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.delaysContentTouches = false
+        collectionView.backgroundColor = UIColor(named: "mainBackground")
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        collectionView.setCollectionViewLayout(layout, animated: true)
+        
+        collectionView.register(FavoriteBookCollectionViewCell.self,
+                                forCellWithReuseIdentifier: FavoriteBookCollectionViewCell.identifier)
+        
+        return collectionView
+    }()
     
     /*
      favoriteAuthorsView
@@ -126,6 +134,7 @@ class MyBooksView: UIView {
         
         favoriteBooksView.addSubview(favoriteBooksLabel)
         favoriteBooksView.addSubview(seeAllFavoriteBooksButton)
+        favoriteBooksView.addSubview(favoriteBooksCollectionView)
         
         scrollView.addSubview(favoriteBooksView)
         
@@ -139,7 +148,12 @@ class MyBooksView: UIView {
             favoriteBooksLabel.leadingAnchor.constraint(equalTo: favoriteBooksView.leadingAnchor, constant: 20),
             
             seeAllFavoriteBooksButton.centerYAnchor.constraint(equalTo: favoriteBooksLabel.centerYAnchor),
-            seeAllFavoriteBooksButton.trailingAnchor.constraint(equalTo: favoriteBooksView.trailingAnchor, constant: -20)
+            seeAllFavoriteBooksButton.trailingAnchor.constraint(equalTo: favoriteBooksView.trailingAnchor, constant: -20),
+            
+            favoriteBooksCollectionView.topAnchor.constraint(equalTo: favoriteBooksLabel.bottomAnchor, constant: 21),
+            favoriteBooksCollectionView.leadingAnchor.constraint(equalTo: favoriteBooksView.leadingAnchor, constant: 20),
+            favoriteBooksCollectionView.trailingAnchor.constraint(equalTo: favoriteBooksView.trailingAnchor),
+            favoriteBooksCollectionView.heightAnchor.constraint(equalToConstant: 262)
         ])
     }
     
@@ -150,7 +164,13 @@ class MyBooksView: UIView {
         backgroundColor = .systemGreen
     }
     
-    @objc func didTapSeeAllFavoriteBooksButton() {
+    func configureFavoriteBooksCollectionView(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
+        
+        favoriteBooksCollectionView.delegate = delegate
+        favoriteBooksCollectionView.dataSource = dataSource
+    }
+    
+    private func didTapSeeAllFavoriteBooksButton() {
         
         print("SEE ALL")
     }

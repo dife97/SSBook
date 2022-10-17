@@ -44,7 +44,6 @@ class HomeView: UIView {
     private lazy var myBookTitleButton: SSButton = {
         let button = SSButton(title: "Meus livros")
         
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.buttonAction = { self.didTapMyBooksButton() }
         
         return button
@@ -53,7 +52,6 @@ class HomeView: UIView {
     private lazy var borrowedBooksTitleButton: SSButton = {
         let button = SSButton(title: "Emprestados")
         
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.buttonAction = { self.didTapBorrowedBooksButton() }
         
         return button
