@@ -33,7 +33,7 @@ class FavoriteBookCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    lazy var booktAuthorLabel: SSLabel = {
+    lazy var bookAuthorLabel: SSLabel = {
         let label = SSLabel(
             text: "Julia Quinn",
             size: 14,
@@ -59,7 +59,7 @@ class FavoriteBookCollectionViewCell: UICollectionViewCell {
         
         contentView.addSubview(coverImageView)
         contentView.addSubview(booktTitleLabel)
-        contentView.addSubview(booktAuthorLabel)
+        contentView.addSubview(bookAuthorLabel)
         
         NSLayoutConstraint.activate([
             coverImageView.topAnchor.constraint(equalTo: topAnchor),
@@ -72,9 +72,9 @@ class FavoriteBookCollectionViewCell: UICollectionViewCell {
             booktTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             booktTitleLabel.widthAnchor.constraint(equalToConstant: 136),
             
-            booktAuthorLabel.topAnchor.constraint(equalTo: booktTitleLabel.bottomAnchor, constant: 2),
-            booktAuthorLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            booktAuthorLabel.widthAnchor.constraint(equalToConstant: 136)
+            bookAuthorLabel.topAnchor.constraint(equalTo: booktTitleLabel.bottomAnchor, constant: 2),
+            bookAuthorLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            bookAuthorLabel.widthAnchor.constraint(equalToConstant: 136)
         ])
     }
 }

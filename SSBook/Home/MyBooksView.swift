@@ -31,6 +31,7 @@ class MyBooksView: UIView {
         let view = UIView()
         
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(named: "mainBackground")
         
         return view
     }()
@@ -67,17 +68,47 @@ class MyBooksView: UIView {
         return collectionView
     }()
     
-    /*
-     favoriteAuthorsView
-         - favoriteAuthorsLabel
-         - seeAllFavoriteAuthorsButton
-         - favoriteAuthorsCollectionView
-                 - favoriteAurthorCollectionViewCell
-                         - authorImageView
-                         - authorNameLabel
-                         - booksCountLabel
-     
-     */
+    lazy var favoriteAuthorsView: UIView = {
+        let view = UIView()
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        
+        return view
+    }()
+    
+    let favoriteAuthorsLabel = SSLabel(text: "Autores favoritos")
+    
+    lazy var seeAllFavoriteAuthorsButton: SSButton = {
+        let button = SSButton(title: "ver todos", titleColorName: "mainPurple")
+
+        button.buttonAction = { self.didTapSeeAllFavoriteAuthorsButton() }
+
+        return button
+    }()
+    
+    lazy var favoriteAuthorsCollectionView: UICollectionView = {
+        let collectionView = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: UICollectionViewLayout()
+        )
+        
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.delaysContentTouches = false
+        collectionView.backgroundColor = .white
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        collectionView.setCollectionViewLayout(layout, animated: true)
+        
+        collectionView.register(FavoriteAuthorsCollectionViewCell.self,
+                                forCellWithReuseIdentifier: FavoriteAuthorsCollectionViewCell.identifier)
+        
+        return collectionView
+    }()
+    
     
     /*
      libraryView
@@ -106,6 +137,10 @@ class MyBooksView: UIView {
         configureScrollView()
         
         configureFavoriteBooksView()
+        
+        configureFavoriteAuthorsView()
+        
+        configureLibraryView()
         
         additionalConfiguration()
     }
@@ -142,7 +177,7 @@ class MyBooksView: UIView {
             favoriteBooksView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             favoriteBooksView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             favoriteBooksView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            favoriteBooksView.heightAnchor.constraint(equalToConstant: 300),
+            favoriteBooksView.heightAnchor.constraint(equalToConstant: 370),
             
             favoriteBooksLabel.topAnchor.constraint(equalTo: favoriteBooksView.topAnchor, constant: 32),
             favoriteBooksLabel.leadingAnchor.constraint(equalTo: favoriteBooksView.leadingAnchor, constant: 20),
@@ -157,11 +192,36 @@ class MyBooksView: UIView {
         ])
     }
     
-    private func additionalConfiguration() {
+    private func configureFavoriteAuthorsView() {
         
-        translatesAutoresizingMaskIntoConstraints = false
+        favoriteAuthorsView.addSubview(favoriteAuthorsLabel)
+        favoriteAuthorsView.addSubview(seeAllFavoriteAuthorsButton)
+        favoriteAuthorsView.addSubview(favoriteAuthorsCollectionView)
         
-        backgroundColor = .systemGreen
+        scrollView.addSubview(favoriteAuthorsView)
+
+        NSLayoutConstraint.activate([
+            favoriteAuthorsView.topAnchor.constraint(equalTo: favoriteBooksView.bottomAnchor),
+            favoriteAuthorsView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            favoriteAuthorsView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            favoriteAuthorsView.heightAnchor.constraint(equalToConstant: 600),
+
+            favoriteAuthorsLabel.topAnchor.constraint(equalTo: favoriteAuthorsView.topAnchor, constant: 32),
+            favoriteAuthorsLabel.leadingAnchor.constraint(equalTo: favoriteAuthorsView.leadingAnchor, constant: 20),
+
+            seeAllFavoriteAuthorsButton.centerYAnchor.constraint(equalTo: favoriteAuthorsLabel.centerYAnchor),
+            seeAllFavoriteAuthorsButton.trailingAnchor.constraint(equalTo: favoriteAuthorsView.trailingAnchor, constant: -20),
+
+            favoriteAuthorsCollectionView.topAnchor.constraint(equalTo: favoriteAuthorsLabel.bottomAnchor, constant: 21),
+            favoriteAuthorsCollectionView.leadingAnchor.constraint(equalTo: favoriteAuthorsView.leadingAnchor, constant: 20),
+            favoriteAuthorsCollectionView.trailingAnchor.constraint(equalTo: favoriteAuthorsView.trailingAnchor),
+            favoriteAuthorsCollectionView.heightAnchor.constraint(equalToConstant: 69),
+        ])
+    }
+    
+    private func configureLibraryView() {
+        
+        
     }
     
     func configureFavoriteBooksCollectionView(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
@@ -170,8 +230,26 @@ class MyBooksView: UIView {
         favoriteBooksCollectionView.dataSource = dataSource
     }
     
+    func configureFavoriteAuthorsCollectionView(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
+        
+        favoriteAuthorsCollectionView.delegate = delegate
+        favoriteAuthorsCollectionView.dataSource = dataSource
+    }
+    
+    private func additionalConfiguration() {
+        
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        backgroundColor = .systemGreen
+    }
+    
     private func didTapSeeAllFavoriteBooksButton() {
         
-        print("SEE ALL")
+        print("SEE ALL BOOKS")
+    }
+    
+    private func didTapSeeAllFavoriteAuthorsButton() {
+        
+        print("SEE ALL AUTHORS")
     }
 }

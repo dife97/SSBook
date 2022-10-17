@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
         
         configureTabBar()
         
-        configureFavoriteBooksCollectionView()
+        configureCollectionViews()
         
         
 //        apolloClient.fetch(query: FavoriteBooksQuery()) { result in
@@ -62,7 +62,7 @@ class HomeViewController: UIViewController {
     
     private func setScrollViewContentSize() {
         
-        let height: CGFloat = homeView.myBooksView.favoriteBooksView.frame.size.height + 100
+        let height: CGFloat = homeView.myBooksView.favoriteBooksView.frame.size.height + homeView.myBooksView.favoriteAuthorsView.frame.size.height + 100
         
         homeView.myBooksView.scrollView.contentSize = CGSize(width: homeView.myBooksView.frame.size.width, height: height)
         homeView.myBooksView.containerView.heightAnchor.constraint(equalToConstant: height).isActive = true
@@ -77,29 +77,66 @@ class HomeViewController: UIViewController {
         )
     }
     
-    private func configureFavoriteBooksCollectionView() {
+    private func configureCollectionViews() {
         
         homeView.myBooksView.configureFavoriteBooksCollectionView(delegate: self, dataSource: self)
+        homeView.myBooksView.configureFavoriteAuthorsCollectionView(delegate: self, dataSource: self)
     }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
               
+//        if collectionView == homeView.myBooksView.favoriteBooksCollectionView {
+//            return
+//        }
+//
+//        if collectionView == homeView.myBooksView.favoriteAuthorsCollectionView {
+//            return
+//        }
+        
+        
         return 7
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteBookCollectionViewCell.identifier, for: indexPath) as? FavoriteBookCollectionViewCell
+        if collectionView == homeView.myBooksView.favoriteBooksCollectionView {
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteBookCollectionViewCell.identifier,
+                                                          for: indexPath) as? FavoriteBookCollectionViewCell
+            
+            
+            return cell ?? UICollectionViewCell()
+        }
         
+        if collectionView == homeView.myBooksView.favoriteAuthorsCollectionView {
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteAuthorsCollectionViewCell.identifier,
+                                                          for: indexPath) as? FavoriteAuthorsCollectionViewCell
+            
+            
+            return cell ?? UICollectionViewCell()
+        }
         
-        return cell ?? UICollectionViewCell()
+        return UICollectionViewCell()
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 136, height: 262)
+        if collectionView == homeView.myBooksView.favoriteBooksCollectionView {
+            return CGSize(width: 136, height: 262)
+        }
+        
+        if collectionView == homeView.myBooksView.favoriteAuthorsCollectionView {
+            return CGSize(width: 248, height: 69)
+        }
+        
+        return CGSize()
     }
 }
