@@ -19,6 +19,7 @@
 		310ADD2C28FC48A300DB748B /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 310ADD2928FC48A300DB748B /* Roboto-Medium.ttf */; };
 		310ADD2D28FC48A300DB748B /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 310ADD2A28FC48A300DB748B /* Roboto-Regular.ttf */; };
 		310ADD2E28FC48A300DB748B /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 310ADD2B28FC48A300DB748B /* Roboto-Bold.ttf */; };
+		310ADD3028FCCD0B00DB748B /* SSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310ADD2F28FCCD0B00DB748B /* SSLabel.swift */; };
 		31EAA19228FB7CEE00F95DCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAA19128FB7CEE00F95DCB /* AppDelegate.swift */; };
 		31EAA19428FB7CEE00F95DCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAA19328FB7CEE00F95DCB /* SceneDelegate.swift */; };
 		31EAA19628FB7CEE00F95DCB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAA19528FB7CEE00F95DCB /* HomeViewController.swift */; };
@@ -38,6 +39,7 @@
 		310ADD2928FC48A300DB748B /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		310ADD2A28FC48A300DB748B /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		310ADD2B28FC48A300DB748B /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		310ADD2F28FCCD0B00DB748B /* SSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLabel.swift; sourceTree = "<group>"; };
 		31EAA18E28FB7CEE00F95DCB /* SSBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31EAA19128FB7CEE00F95DCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31EAA19328FB7CEE00F95DCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				310ADD2628FC445200DB748B /* SSButton.swift */,
+				310ADD2F28FCCD0B00DB748B /* SSLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				310ADD3028FCCD0B00DB748B /* SSLabel.swift in Sources */,
 				31EAA19628FB7CEE00F95DCB /* HomeViewController.swift in Sources */,
 				31EAA19228FB7CEE00F95DCB /* AppDelegate.swift in Sources */,
 				310ADD1B28FB7F5400DB748B /* API.swift in Sources */,

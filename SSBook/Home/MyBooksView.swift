@@ -22,29 +22,30 @@ class MyBooksView: UIView {
         let view = UIView()
         
         view.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.backgroundColor = .systemMint
+        view.backgroundColor = UIColor(named: "mainBackground")
         
         return view
     }()
     
-    lazy var topButton: UIButton = {
-        let button = UIButton(type: .system)
+    lazy var favoriteBooksView: UIView = {
+        let view = UIView()
         
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .blue
+        view.translatesAutoresizingMaskIntoConstraints = false
         
-        return button
+        return view
     }()
     
-    lazy var bottomButton: UIButton = {
-        let button = UIButton(type: .system)
-        
+    let favoriteBooksLabel = SSLabel(text: "Livros favoritos")
+    
+    lazy var seeAllFavoriteBooksButton: SSButton = {
+        let button = SSButton(title: "ver todos", titleColorName: "mainPurple")
+
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .blue
-        
+        button.buttonAction = { self.didTapSeeAllFavoriteBooksButton() }
+
         return button
     }()
+
     
     /*
      favoriteBooksView
@@ -96,12 +97,15 @@ class MyBooksView: UIView {
         
         configureScrollView()
         
+        configureFavoriteBooksView()
+        
         additionalConfiguration()
     }
     
     private func configureScrollView() {
         
         addSubview(scrollView)
+        
         scrollView.addSubview(containerView)
         
         NSLayoutConstraint.activate([
@@ -116,28 +120,38 @@ class MyBooksView: UIView {
             containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             containerView.widthAnchor.constraint(equalTo: widthAnchor)
         ])
-        
-        containerView.addSubview(topButton)
-        containerView.addSubview(bottomButton)
-        
-        NSLayoutConstraint.activate([
-            topButton.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20),
-            topButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
-            topButton.heightAnchor.constraint(equalToConstant: 1000),
-            topButton.widthAnchor.constraint(equalToConstant: 100),
-            
-            bottomButton.topAnchor.constraint(equalTo: topButton.bottomAnchor, constant: 60),
-            bottomButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
-            bottomButton.heightAnchor.constraint(equalToConstant: 100),
-            bottomButton.widthAnchor.constraint(equalToConstant: 100),
-        ])
     }
     
+    private func configureFavoriteBooksView() {
+        
+        favoriteBooksView.addSubview(favoriteBooksLabel)
+        favoriteBooksView.addSubview(seeAllFavoriteBooksButton)
+        
+        scrollView.addSubview(favoriteBooksView)
+        
+        NSLayoutConstraint.activate([
+            favoriteBooksView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            favoriteBooksView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            favoriteBooksView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            favoriteBooksView.heightAnchor.constraint(equalToConstant: 300),
+            
+            favoriteBooksLabel.topAnchor.constraint(equalTo: favoriteBooksView.topAnchor, constant: 32),
+            favoriteBooksLabel.leadingAnchor.constraint(equalTo: favoriteBooksView.leadingAnchor, constant: 20),
+            
+            seeAllFavoriteBooksButton.centerYAnchor.constraint(equalTo: favoriteBooksLabel.centerYAnchor),
+            seeAllFavoriteBooksButton.trailingAnchor.constraint(equalTo: favoriteBooksView.trailingAnchor, constant: -20)
+        ])
+    }
     
     private func additionalConfiguration() {
         
         translatesAutoresizingMaskIntoConstraints = false
         
         backgroundColor = .systemGreen
+    }
+    
+    @objc func didTapSeeAllFavoriteBooksButton() {
+        
+        print("SEE ALL")
     }
 }

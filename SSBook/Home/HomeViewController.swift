@@ -59,7 +59,7 @@ class HomeViewController: UIViewController {
     
     private func setScrollViewContentSize() {
         
-        let height: CGFloat = homeView.myBooksView.topButton.frame.size.height + homeView.myBooksView.bottomButton.frame.size.height + 100
+        let height: CGFloat = homeView.myBooksView.favoriteBooksView.frame.size.height + 100
         
         homeView.myBooksView.scrollView.contentSize = CGSize(width: homeView.myBooksView.frame.size.width, height: height)
         homeView.myBooksView.containerView.heightAnchor.constraint(equalToConstant: height).isActive = true

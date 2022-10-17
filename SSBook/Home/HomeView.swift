@@ -69,7 +69,11 @@ class HomeView: UIView {
         return view
     }()
     
-    var myBooksView = MyBooksView()
+    lazy var myBooksView: MyBooksView = {
+        let view = MyBooksView()
+        
+        return view
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

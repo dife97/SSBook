@@ -19,13 +19,14 @@ class SSButton: UIView {
     
     var buttonAction: (() -> Void)?
     
-    init(title: String, titleColor: UIColor? = UIColor(named: "mainBlack")) {
+    init(title: String,
+         titleColorName: String = "mainBlack") {
         
         super.init(frame: .zero)
         
         configureView()
         
-        configureSSButton(title: title, titleColor: titleColor)
+        configureSSButton(title: title, titleColorName: titleColorName)
     }
     
     required init?(coder: NSCoder) {
@@ -46,10 +47,10 @@ class SSButton: UIView {
         ])
     }
     
-    private func configureSSButton(title: String, titleColor: UIColor?) {
+    private func configureSSButton(title: String, titleColorName: String) {
         
         mainButton.setTitle(title, for: .normal)
-        mainButton.setTitleColor(titleColor, for: .normal)
+        mainButton.setTitleColor(UIColor(named: titleColorName), for: .normal)
         mainButton.titleLabel?.font = UIFont(name: "Roboto-Bold", size: 14)
         
         mainButton.addTarget(self, action: #selector(didTapSSButton), for: .touchUpInside)
