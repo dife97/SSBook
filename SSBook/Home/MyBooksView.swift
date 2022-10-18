@@ -9,23 +9,9 @@ import UIKit
 
 class MyBooksView: UIView {
         
-    lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.backgroundColor = UIColor(named: "mainBackground")
-
-        return scrollView
-    }()
+    let scrollView = SSScrollView(backgroundColorName: "mainBackground")
     
-    lazy var containerView: UIView = {
-        let view = UIView()
-        
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(named: "mainBackground")
-        
-        return view
-    }()
+    let containerView = SSView(backgroundColorName: "mainBackground")
     
     lazy var favoriteBooksView: UIView = {
         let view = UIView()

@@ -26,6 +26,9 @@
 		31E06E3E28FE28690089EA6D /* LibraryBooksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E06E3D28FE28690089EA6D /* LibraryBooksTableViewCell.swift */; };
 		31E06E4028FE3FBE0089EA6D /* BookInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E06E3F28FE3FBE0089EA6D /* BookInfoViewController.swift */; };
 		31E06E4228FE41390089EA6D /* BookInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E06E4128FE41390089EA6D /* BookInfoView.swift */; };
+		31E06E4428FEAC120089EA6D /* SSImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E06E4328FEAC120089EA6D /* SSImageView.swift */; };
+		31E06E4628FEB1930089EA6D /* SSScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E06E4528FEB1930089EA6D /* SSScrollView.swift */; };
+		31E06E4828FEB1990089EA6D /* SSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E06E4728FEB1990089EA6D /* SSView.swift */; };
 		31EAA19228FB7CEE00F95DCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAA19128FB7CEE00F95DCB /* AppDelegate.swift */; };
 		31EAA19428FB7CEE00F95DCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAA19328FB7CEE00F95DCB /* SceneDelegate.swift */; };
 		31EAA19628FB7CEE00F95DCB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAA19528FB7CEE00F95DCB /* HomeViewController.swift */; };
@@ -52,6 +55,9 @@
 		31E06E3D28FE28690089EA6D /* LibraryBooksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryBooksTableViewCell.swift; sourceTree = "<group>"; };
 		31E06E3F28FE3FBE0089EA6D /* BookInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoViewController.swift; sourceTree = "<group>"; };
 		31E06E4128FE41390089EA6D /* BookInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoView.swift; sourceTree = "<group>"; };
+		31E06E4328FEAC120089EA6D /* SSImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSImageView.swift; sourceTree = "<group>"; };
+		31E06E4528FEB1930089EA6D /* SSScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSScrollView.swift; sourceTree = "<group>"; };
+		31E06E4728FEB1990089EA6D /* SSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSView.swift; sourceTree = "<group>"; };
 		31EAA18E28FB7CEE00F95DCB /* SSBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31EAA19128FB7CEE00F95DCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31EAA19328FB7CEE00F95DCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +102,9 @@
 			children = (
 				310ADD2628FC445200DB748B /* SSButton.swift */,
 				310ADD2F28FCCD0B00DB748B /* SSLabel.swift */,
+				31E06E4328FEAC120089EA6D /* SSImageView.swift */,
+				31E06E4528FEB1930089EA6D /* SSScrollView.swift */,
+				31E06E4728FEB1990089EA6D /* SSView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -256,9 +265,12 @@
 				310ADD1D28FC14C100DB748B /* DummyViewController.swift in Sources */,
 				31906AFA28FD596D00BD2BEA /* CategoryCollectionViewCell.swift in Sources */,
 				310ADD2228FC317400DB748B /* MyBooksView.swift in Sources */,
+				31E06E4428FEAC120089EA6D /* SSImageView.swift in Sources */,
 				31E06E3E28FE28690089EA6D /* LibraryBooksTableViewCell.swift in Sources */,
+				31E06E4828FEB1990089EA6D /* SSView.swift in Sources */,
 				31EAA19428FB7CEE00F95DCB /* SceneDelegate.swift in Sources */,
 				3189F37328FCE74400030CD4 /* FavoriteBookCollectionViewCell.swift in Sources */,
+				31E06E4628FEB1930089EA6D /* SSScrollView.swift in Sources */,
 				310ADD2428FC31C100DB748B /* BorrowedBooksView.swift in Sources */,
 				310ADD2728FC445200DB748B /* SSButton.swift in Sources */,
 				3189F37528FD04AD00030CD4 /* FavoriteAuthorsCollectionViewCell.swift in Sources */,

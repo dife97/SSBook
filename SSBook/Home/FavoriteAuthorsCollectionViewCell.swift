@@ -23,17 +23,7 @@ class FavoriteAuthorsCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    lazy var authorImageView: UIImageView = {
-        let imageView = UIImageView()
-
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 8
-        imageView.layer.masksToBounds = true
-        imageView.image = UIImage(named: "randomAuthor")
-
-        return imageView
-    }()
+    let authorImageView = SSImageView(imageName: "randomAuthor")
 
     lazy var authorTitleLabel: SSLabel = {
         let label = SSLabel(

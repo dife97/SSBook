@@ -35,15 +35,13 @@ class BookInfoViewController: UIViewController {
     }
     
     private lazy var bookInfoView: BookInfoView = {
-        let view = BookInfoView()
-        
-        view.configureView(with: BookInfoViewConfiguration(
+        let view = BookInfoView(
             bookCoverImageName: bookCoverImageName,
             bookTitleText: bookTitleText,
             authorNameText: authorNameText,
             bookDescriptionText: bookDescriptionText,
             isFavorite: isFavorite
-        ))
+        )
         
         return view
     }()
@@ -52,7 +50,6 @@ class BookInfoViewController: UIViewController {
     override func loadView() {
         
         view = bookInfoView
-        
     }
     
     override func viewDidLoad() {

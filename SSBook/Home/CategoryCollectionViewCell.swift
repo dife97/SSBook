@@ -57,14 +57,10 @@ class CategoryCollectionViewCell: UICollectionViewCell {
             outterView.trailingAnchor.constraint(equalTo: trailingAnchor),
             outterView.bottomAnchor.constraint(equalTo: bottomAnchor),
 
-//            categoryLabel.centerXAnchor.constraint(equalTo: outterView.centerXAnchor),
             categoryLabel.topAnchor.constraint(equalTo: outterView.topAnchor, constant: 6),
             categoryLabel.leadingAnchor.constraint(equalTo: outterView.leadingAnchor, constant: 16),
             categoryLabel.trailingAnchor.constraint(equalTo: outterView.trailingAnchor, constant: -16),
             categoryLabel.bottomAnchor.constraint(equalTo: outterView.bottomAnchor, constant: -6),
-//            categoryLabel.centerYAnchor.constraint(equalTo: outterView.centerYAnchor),
-//            categoryLabel.heightAnchor.constraint(equalToConstant: 20),
-//            categoryLabel.trailingAnchor.constraint(equalTo: outterView.trailingAnchor, constant: -29)
         ])
     }
 }

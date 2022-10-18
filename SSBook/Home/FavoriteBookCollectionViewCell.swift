@@ -11,18 +11,8 @@ class FavoriteBookCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "FavoriteBookCollectionViewCell"
     
-    lazy var coverImageView: UIImageView = {
-        let imageView = UIImageView()
+    let coverImageView = SSImageView(imageName: "dummyBookCover")
         
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "dummyBookCover")
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 8
-        imageView.layer.masksToBounds = true
-        
-        return imageView
-    }()
-    
     lazy var booktTitleLabel: SSLabel = {
         let label = SSLabel(
             text: "O duque e eu (Os Bridgertons não sei o que..",

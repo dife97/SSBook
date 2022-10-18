@@ -10,18 +10,8 @@ import UIKit
 class LibraryBooksTableViewCell: UITableViewCell {
     
     static let identifier = "LibraryBooksTableViewCell"
-    
-    lazy var bookCoverImageView: UIImageView = {
-        let imageView = UIImageView()
         
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "dummyBookCover")
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 8
-        imageView.layer.masksToBounds = true
-        
-        return imageView
-    }()
+    let bookCoverImageView = SSImageView(imageName: "dummyBookCover")
     
     lazy var booktTitleLabel: SSLabel = {
         let label = SSLabel(
