@@ -24,6 +24,8 @@
 		3189F37528FD04AD00030CD4 /* FavoriteAuthorsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3189F37428FD04AD00030CD4 /* FavoriteAuthorsCollectionViewCell.swift */; };
 		31906AFA28FD596D00BD2BEA /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31906AF928FD596D00BD2BEA /* CategoryCollectionViewCell.swift */; };
 		31E06E3E28FE28690089EA6D /* LibraryBooksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E06E3D28FE28690089EA6D /* LibraryBooksTableViewCell.swift */; };
+		31E06E4028FE3FBE0089EA6D /* BookInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E06E3F28FE3FBE0089EA6D /* BookInfoViewController.swift */; };
+		31E06E4228FE41390089EA6D /* BookInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E06E4128FE41390089EA6D /* BookInfoView.swift */; };
 		31EAA19228FB7CEE00F95DCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAA19128FB7CEE00F95DCB /* AppDelegate.swift */; };
 		31EAA19428FB7CEE00F95DCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAA19328FB7CEE00F95DCB /* SceneDelegate.swift */; };
 		31EAA19628FB7CEE00F95DCB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAA19528FB7CEE00F95DCB /* HomeViewController.swift */; };
@@ -48,6 +50,8 @@
 		3189F37428FD04AD00030CD4 /* FavoriteAuthorsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAuthorsCollectionViewCell.swift; sourceTree = "<group>"; };
 		31906AF928FD596D00BD2BEA /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		31E06E3D28FE28690089EA6D /* LibraryBooksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryBooksTableViewCell.swift; sourceTree = "<group>"; };
+		31E06E3F28FE3FBE0089EA6D /* BookInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoViewController.swift; sourceTree = "<group>"; };
+		31E06E4128FE41390089EA6D /* BookInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoView.swift; sourceTree = "<group>"; };
 		31EAA18E28FB7CEE00F95DCB /* SSBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31EAA19128FB7CEE00F95DCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31EAA19328FB7CEE00F95DCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,11 +80,13 @@
 				310ADD1728FB7EB300DB748B /* HomeViewController.graphql */,
 				310ADD1F28FC311300DB748B /* HomeView.swift */,
 				310ADD2128FC317400DB748B /* MyBooksView.swift */,
+				310ADD2328FC31C100DB748B /* BorrowedBooksView.swift */,
 				3189F37228FCE74400030CD4 /* FavoriteBookCollectionViewCell.swift */,
 				3189F37428FD04AD00030CD4 /* FavoriteAuthorsCollectionViewCell.swift */,
 				31906AF928FD596D00BD2BEA /* CategoryCollectionViewCell.swift */,
 				31E06E3D28FE28690089EA6D /* LibraryBooksTableViewCell.swift */,
-				310ADD2328FC31C100DB748B /* BorrowedBooksView.swift */,
+				31E06E3F28FE3FBE0089EA6D /* BookInfoViewController.swift */,
+				31E06E4128FE41390089EA6D /* BookInfoView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -242,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				310ADD3028FCCD0B00DB748B /* SSLabel.swift in Sources */,
+				31E06E4028FE3FBE0089EA6D /* BookInfoViewController.swift in Sources */,
 				31EAA19628FB7CEE00F95DCB /* HomeViewController.swift in Sources */,
 				31EAA19228FB7CEE00F95DCB /* AppDelegate.swift in Sources */,
 				310ADD1B28FB7F5400DB748B /* API.swift in Sources */,
@@ -255,6 +262,7 @@
 				310ADD2428FC31C100DB748B /* BorrowedBooksView.swift in Sources */,
 				310ADD2728FC445200DB748B /* SSButton.swift in Sources */,
 				3189F37528FD04AD00030CD4 /* FavoriteAuthorsCollectionViewCell.swift in Sources */,
+				31E06E4228FE41390089EA6D /* BookInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

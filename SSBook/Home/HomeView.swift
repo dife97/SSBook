@@ -102,13 +102,12 @@ class HomeView: UIView {
         headerView.addSubview(userPictureImageView)
         
         NSLayoutConstraint.activate([
-            
-            headerView.topAnchor.constraint(equalTo: topAnchor),
+            headerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             headerView.leadingAnchor.constraint(equalTo: leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 168),
+            headerView.heightAnchor.constraint(equalToConstant: 118),
             
-            logoImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 12),
+            logoImageView.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 6),
             logoImageView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20),
             logoImageView.heightAnchor.constraint(equalToConstant: 44),
             logoImageView.widthAnchor.constraint(equalToConstant: 78),
