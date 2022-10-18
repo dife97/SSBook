@@ -8,13 +8,12 @@
 import UIKit
 
 class MyBooksView: UIView {
-    
+        
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
 
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.backgroundColor = UIColor(named: "mainBackground")
-//        scrollView.backgroundColor = .systemGreen
 
         return scrollView
     }()
@@ -127,33 +126,32 @@ class MyBooksView: UIView {
             collectionViewLayout: UICollectionViewLayout()
         )
         
+        let layout = UICollectionViewFlowLayout()
+        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.delaysContentTouches = false
         collectionView.backgroundColor = .white
         
-        let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         
         collectionView.setCollectionViewLayout(layout, animated: true)
-        
         collectionView.register(CategoryCollectionViewCell.self,
                                 forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
         
         return collectionView
     }()
     
-    /*
-     libraryView
-        - categoryMenuCollectionView
-                - categoryCollectionViewCell
-        - libraryBooksTableView
-                - libraryBooksTableViewCell
-                         - bookCoverImageView
-                         - bookTitleLabel
-                         - authorLabel
-     
-     */
+    lazy var libraryBooksTableView: UITableView = {
+        let tableView = UITableView()
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.rowHeight = 80
+        tableView.register(LibraryBooksTableViewCell.self,
+                           forCellReuseIdentifier: LibraryBooksTableViewCell.identifier)
+        
+        return tableView
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -252,10 +250,11 @@ class MyBooksView: UIView {
         ])
     }
     
-    private func configureLibraryView() {
+    func configureLibraryView() {
         
         libraryView.addSubview(librayTitleLabel)
         libraryView.addSubview(categoryMenuCollectionView)
+        libraryView.addSubview(libraryBooksTableView)
         
         scrollView.addSubview(libraryView)
         
@@ -263,7 +262,6 @@ class MyBooksView: UIView {
             libraryView.topAnchor.constraint(equalTo: favoriteAuthorsView.bottomAnchor),
             libraryView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             libraryView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            libraryView.heightAnchor.constraint(equalToConstant: 800),
             
             librayTitleLabel.topAnchor.constraint(equalTo: libraryView.topAnchor),
             librayTitleLabel.leadingAnchor.constraint(equalTo: libraryView.leadingAnchor, constant: 20),
@@ -271,7 +269,11 @@ class MyBooksView: UIView {
             categoryMenuCollectionView.topAnchor.constraint(equalTo: librayTitleLabel.bottomAnchor, constant: 21),
             categoryMenuCollectionView.leadingAnchor.constraint(equalTo: libraryView.leadingAnchor, constant: 20),
             categoryMenuCollectionView.trailingAnchor.constraint(equalTo: libraryView.trailingAnchor),
-            categoryMenuCollectionView.heightAnchor.constraint(equalToConstant: 32)
+            categoryMenuCollectionView.heightAnchor.constraint(equalToConstant: 32),
+            
+            libraryBooksTableView.topAnchor.constraint(equalTo: categoryMenuCollectionView.bottomAnchor, constant: 20),
+            libraryBooksTableView.leadingAnchor.constraint(equalTo: libraryView.leadingAnchor),
+            libraryBooksTableView.trailingAnchor.constraint(equalTo: libraryView.trailingAnchor),
         ])
     }
     
@@ -285,6 +287,12 @@ class MyBooksView: UIView {
         
         categoryMenuCollectionView.delegate = delegate
         categoryMenuCollectionView.dataSource = dataSource
+    }
+    
+    func configureLibraryBooksTableView(delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
+        
+        libraryBooksTableView.delegate = delegate
+        libraryBooksTableView.dataSource = dataSource
     }
     
     private func additionalConfiguration() {

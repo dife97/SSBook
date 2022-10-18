@@ -12,6 +12,10 @@ class HomeViewController: UIViewController {
 
     let homeView = HomeView()
     
+    var customViewHeight: CGFloat {
+        6 * 80 + 32
+    }
+    
     override func loadView() {
         
         view = homeView
@@ -24,8 +28,7 @@ class HomeViewController: UIViewController {
         
         configureTabBar()
         
-        configureCollectionViews()
-        
+        configureDelegates()
         
 //        apolloClient.fetch(query: FavoriteBooksQuery()) { result in
 //
@@ -64,12 +67,13 @@ class HomeViewController: UIViewController {
         
         let favoriteBooksViewHeight = homeView.myBooksView.favoriteBooksView.frame.size.height
         let favoriteAuthorsViewHeight = homeView.myBooksView.favoriteAuthorsView.frame.size.height
-        let libraryViewHeight = homeView.myBooksView.libraryView.frame.size.height
+
+        let height: CGFloat = favoriteBooksViewHeight + favoriteAuthorsViewHeight + customViewHeight + 92
         
-        let height: CGFloat = favoriteBooksViewHeight + favoriteAuthorsViewHeight + libraryViewHeight
-        
-        homeView.myBooksView.scrollView.contentSize = CGSize(width: homeView.myBooksView.frame.size.width, height: height)
+        homeView.myBooksView.libraryView.heightAnchor.constraint(equalToConstant: customViewHeight).isActive = true
+        homeView.myBooksView.libraryBooksTableView.heightAnchor.constraint(equalToConstant: customViewHeight).isActive = true
         homeView.myBooksView.containerView.heightAnchor.constraint(equalToConstant: height).isActive = true
+        homeView.myBooksView.scrollView.contentSize = CGSize(width: homeView.myBooksView.frame.size.width, height: height)
     }
     
     private func configureTabBar() {
@@ -81,9 +85,11 @@ class HomeViewController: UIViewController {
         )
     }
     
-    private func configureCollectionViews() {
+    private func configureDelegates() {
         
         homeView.myBooksView.configureMyBooksCollectionViews(delegate: self, dataSource: self)
+        
+        homeView.myBooksView.configureLibraryBooksTableView(delegate: self, dataSource: self)
     }
 }
 
@@ -154,5 +160,23 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         
         return CGSize()
+    }
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
+        
+        return 6
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LibraryBooksTableViewCell",
+                                                 for: indexPath) as? LibraryBooksTableViewCell
+        
+        return cell ?? UITableViewCell()
     }
 }
