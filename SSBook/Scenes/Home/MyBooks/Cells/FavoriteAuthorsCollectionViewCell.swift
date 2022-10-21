@@ -23,21 +23,21 @@ class FavoriteAuthorsCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    let authorImageView = SSImageView(imageName: "randomAuthor")
+    private let authorImageView = SSImageView(imageName: "randomAuthor")
 
-    lazy var authorTitleLabel: SSLabel = {
+    private lazy var authorTitleLabel: SSLabel = {
         let label = SSLabel(
-            text: "Morgan Freeman",
+            text: "-",
             size: 16)
 
-        label.numberOfLines = 0
+        label.numberOfLines = 1
 
         return label
     }()
 
-    lazy var booksCountLabel: SSLabel = {
+    private lazy var booksCountLabel: SSLabel = {
         let label = SSLabel(
-            text: "7 livros",
+            text: "-",
             size: 14,
             font: "Roboto-Regular"
         )
@@ -78,11 +78,24 @@ class FavoriteAuthorsCollectionViewCell: UICollectionViewCell {
 
             authorTitleLabel.topAnchor.constraint(equalTo: outterView.topAnchor, constant: 15),
             authorTitleLabel.leadingAnchor.constraint(equalTo: authorImageView.trailingAnchor, constant: 20),
-            authorTitleLabel.trailingAnchor.constraint(equalTo: outterView.trailingAnchor, constant: -29),
+            authorTitleLabel.trailingAnchor.constraint(equalTo: outterView.trailingAnchor, constant: -8),
 
             booksCountLabel.topAnchor.constraint(equalTo: authorTitleLabel.bottomAnchor, constant: 5),
             booksCountLabel.leadingAnchor.constraint(equalTo: authorTitleLabel.leadingAnchor),
             booksCountLabel.trailingAnchor.constraint(equalTo: authorTitleLabel.trailingAnchor)
         ])
+    }
+    
+    func configure(with author: FavoriteAuthorModel) {
+        
+        authorImageView.image = author.image
+        
+        authorTitleLabel.text = author.name
+        
+        if author.booksCount == 1 {
+            booksCountLabel.text = "\(author.booksCount) livro"
+        } else if author.booksCount > 1 {
+            booksCountLabel.text = "\(author.booksCount) livros"
+        }
     }
 }

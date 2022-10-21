@@ -67,4 +67,13 @@ class FavoriteBookCollectionViewCell: UICollectionViewCell {
             bookAuthorLabel.widthAnchor.constraint(equalToConstant: 136)
         ])
     }
+    
+    func configure(with book: FavoriteBookModel) {
+        
+        coverImageView.image = book.coverImage
+        
+        booktTitleLabel.text = book.name
+        
+        bookAuthorLabel.text = book.author
+    }
 }

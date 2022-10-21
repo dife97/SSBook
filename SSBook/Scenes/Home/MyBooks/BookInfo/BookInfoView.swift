@@ -10,19 +10,31 @@ import UIKit
 class BookInfoView: UIView {
     
     //MARK: - Properties
-    let bookCoverImageName: String
-    let bookTitleText: String
-    let authorNameText: String
-    let bookDescriptionText: String
-    let isFavorite: Bool
+    
+    var bookData: BookData
+    
+    var didTapBackButton: (() -> Void)?
+    
+    var didTapIsFavoriteButton: (() -> Void)?
     
     //MARK: - UI
     
-    // back button
-    // tres pontinhos menuImage
+    //TODO: insert circled background view
+    private lazy var backButton: UIButton = {
+        let button = UIButton(type: .system)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .white
+        button.setImage(UIImage(named: "backButtonIcon"), for: .normal)
+        button.addTarget(self, action: #selector(tappedBackButton), for: .touchUpInside)
+        
+        return button
+    }()
     
-    private lazy var bookCoverImageView: SSImageView = {
-        let imageView = SSImageView(imageName: bookCoverImageName)
+    //TODO: tres pontinhos menuImage
+    
+    lazy var bookCoverImageView: SSImageView = {
+        let imageView = SSImageView(bookImage: bookData.bookCoverImageName)
         
         imageView.layer.cornerRadius = 0
         
@@ -51,7 +63,14 @@ class BookInfoView: UIView {
         return label
     }()
     
-    let isFavoriteIcon = SSImageView(systemImageName: "heart.fill")
+    private lazy var isFavoriteButton: UIButton = {
+        let button = UIButton(type: .system)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(tappedIsFavoriteButton), for: .touchUpInside)
+        
+        return button
+    }()
     
     private lazy var bookDescriptionTextView: UITextView = {
         let textView = UITextView()
@@ -66,7 +85,7 @@ class BookInfoView: UIView {
             .paragraphStyle: paragraphStyle
         ]
 
-        let attributedString = NSAttributedString(string: bookDescriptionText, attributes: attributes)
+        let attributedString = NSAttributedString(string: bookData.bookDescriptionText, attributes: attributes)
         
         textView.attributedText = attributedString
         textView.backgroundColor = .white
@@ -74,18 +93,12 @@ class BookInfoView: UIView {
         return textView
     }()
     
+    //TODO: margin view of height 32
+    
     //MARK: - Initializers
-    init(bookCoverImageName: String,
-         bookTitleText: String,
-         authorNameText: String,
-         bookDescriptionText: String,
-         isFavorite: Bool) {
-        
-        self.bookCoverImageName = bookCoverImageName
-        self.bookTitleText = bookTitleText
-        self.authorNameText = authorNameText
-        self.bookDescriptionText = bookDescriptionText
-        self.isFavorite = isFavorite
+    
+    init(bookData: BookData) {
+        self.bookData = bookData
         
         super.init(frame: .zero)
         
@@ -100,7 +113,21 @@ class BookInfoView: UIView {
         
         configureBookCoverImageView()
         
+        configureBackButton()
+        
         configureBookInfoContainerView()
+    }
+    
+    private func configureBackButton() {
+        
+        addSubview(backButton)
+        
+        NSLayoutConstraint.activate([
+            backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 31),
+            backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
+            backButton.heightAnchor.constraint(equalToConstant: 14),
+            backButton.widthAnchor.constraint(equalToConstant: 16)
+        ])
     }
     
     private func configureBookCoverImageView() {
@@ -120,7 +147,7 @@ class BookInfoView: UIView {
         addSubview(bookInfoContainerView)
         
         bookInfoContainerView.addSubview(booktTitleLabel)
-        bookInfoContainerView.addSubview(isFavoriteIcon)
+        bookInfoContainerView.addSubview(isFavoriteButton)
         bookInfoContainerView.addSubview(bookAuthorLabel)
         bookInfoContainerView.addSubview(bookDescriptionTextView)
         
@@ -134,10 +161,10 @@ class BookInfoView: UIView {
             booktTitleLabel.leadingAnchor.constraint(equalTo: bookInfoContainerView.leadingAnchor, constant: 20),
             booktTitleLabel.trailingAnchor.constraint(equalTo: bookInfoContainerView.trailingAnchor, constant: -64),
             
-            isFavoriteIcon.topAnchor.constraint(equalTo: booktTitleLabel.topAnchor),
-            isFavoriteIcon.trailingAnchor.constraint(equalTo: bookInfoContainerView.trailingAnchor, constant: -20),
-            isFavoriteIcon.heightAnchor.constraint(equalToConstant: 18.35),
-            isFavoriteIcon.widthAnchor.constraint(equalToConstant: 20),
+            isFavoriteButton.topAnchor.constraint(equalTo: bookInfoContainerView.topAnchor, constant: 35),
+            isFavoriteButton.trailingAnchor.constraint(equalTo: bookInfoContainerView.trailingAnchor, constant: -20),
+            isFavoriteButton.heightAnchor.constraint(equalToConstant: 18.35),
+            isFavoriteButton.widthAnchor.constraint(equalToConstant: 20),
             
             bookAuthorLabel.topAnchor.constraint(equalTo: booktTitleLabel.bottomAnchor, constant: 8),
             bookAuthorLabel.leadingAnchor.constraint(equalTo: booktTitleLabel.leadingAnchor),
@@ -147,5 +174,28 @@ class BookInfoView: UIView {
             bookDescriptionTextView.trailingAnchor.constraint(equalTo: bookInfoContainerView.trailingAnchor, constant: -16),
             bookDescriptionTextView.bottomAnchor.constraint(equalTo: bookInfoContainerView.bottomAnchor)
         ])
+    }
+    
+    @objc func tappedBackButton() {
+        
+        didTapBackButton?()
+    }
+    
+    @objc func tappedIsFavoriteButton() {
+        
+        didTapIsFavoriteButton?()
+    }
+    
+    func setFavoriteButton(to value: Bool) {
+        
+        if value == true {
+            bookData.isFavorite = false
+            isFavoriteButton.setImage(UIImage(named: "heartIcon"), for: .normal)
+            isFavoriteButton.tintColor = UIColor(named: "mainGray")
+        } else {
+            bookData.isFavorite = true
+            isFavoriteButton.setImage(UIImage(named: "filledHeartIcon"), for: .normal)
+            isFavoriteButton.tintColor = UIColor(named: "mainPurple")
+        }
     }
 }

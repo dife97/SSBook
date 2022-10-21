@@ -21,6 +21,12 @@ class SSImageView: UIImageView {
         configureSSImage(systemImageName: systemImageName)
     }
     
+    init(bookImage: UIImage?) {
+        super.init(frame: .zero)
+
+        configureSSImage(bookImage: bookImage)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -41,5 +47,13 @@ class SSImageView: UIImageView {
         
         contentMode = .scaleAspectFill
         image = UIImage(systemName: systemImageName)
+    }
+    
+    private func configureSSImage(bookImage: UIImage?) {
+        
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        contentMode = .scaleAspectFill
+        image = bookImage
     }
 }

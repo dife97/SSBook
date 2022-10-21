@@ -6,11 +6,12 @@
 //
 
 import UIKit
-import Apollo
 
 class HomeViewController: UIViewController {
 
     let homeView = HomeView()
+    
+    let homeViewModel = HomeViewModel()
     
     var customViewHeight: CGFloat {
         6 * 80 + 32
@@ -30,25 +31,7 @@ class HomeViewController: UIViewController {
         
         configureDelegates()
         
-//        apolloClient.fetch(query: FavoriteBooksQuery()) { result in
-//
-//            guard let data = try? result.get().data else { return }
-//
-//            for item in data.favoriteBooks {
-//
-//                print("Book name = \(item.name) and Book Author = \(item.author.name). Is favorite? = \(item.isFavorite)")
-//            }
-//        }
-//
-//        apolloClient.fetch(query: FavoriteAuthorsQuery()) { result in
-//
-//            guard let data = try? result.get().data else { return }
-//
-//            for item in data.favoriteAuthors {
-//
-//                print("Author name = \(item.name) and Book count = \(item.booksCount)")
-//            }
-//        }
+        homeViewModel.getFavoriteBooks()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +49,7 @@ class HomeViewController: UIViewController {
     private func configureScrollViewContentSize() {
         
         let favoriteBooksViewHeight = homeView.myBooksView.favoriteBooksView.frame.size.height
+        
         let favoriteAuthorsViewHeight = homeView.myBooksView.favoriteAuthorsView.frame.size.height
 
         let height: CGFloat = favoriteBooksViewHeight + favoriteAuthorsViewHeight + customViewHeight + 92
@@ -87,27 +71,44 @@ class HomeViewController: UIViewController {
     
     private func configureDelegates() {
         
-        homeView.myBooksView.configureMyBooksCollectionViews(delegate: self, dataSource: self)
+        homeViewModel.delegate = self
         
+        homeView.myBooksView.configureMyBooksCollectionViews(delegate: self, dataSource: self)
         homeView.myBooksView.configureLibraryBooksTableView(delegate: self, dataSource: self)
+    }
+    
+    private func navigateToBookInfo(with book: FavoriteBookModel) {
+            
+        let bookData = BookData(
+            bookCoverImageName: book.coverImage,
+            bookTitleText: book.name,
+            authorNameText: book.author,
+            bookDescriptionText: book.description,
+            isFavorite: book.isFavorite
+        )
+        
+        let bookInfoViewController = BookInfoViewController(bookData: bookData)
+        
+        navigationController?.pushViewController(bookInfoViewController, animated: true)
+        
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
               
-//        if collectionView == homeView.myBooksView.favoriteBooksCollectionView {
-//            return
-//        }
-//
-//        if collectionView == homeView.myBooksView.favoriteAuthorsCollectionView {
-//            return
-//        }
+        if collectionView == homeView.myBooksView.favoriteBooksCollectionView {
+            return homeViewModel.favoriteBooks.count
+        }
+
+        if collectionView == homeView.myBooksView.favoriteAuthorsCollectionView {
+            
+            return homeViewModel.favoriteAuthors.count
+        }
         
-        
-        return 7
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -118,6 +119,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteBookCollectionViewCell.identifier,
                                                           for: indexPath) as? FavoriteBookCollectionViewCell
             
+            cell?.configure(with: homeViewModel.favoriteBooks[indexPath.row])
             
             return cell ?? UICollectionViewCell()
         }
@@ -127,6 +129,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteAuthorsCollectionViewCell.identifier,
                                                           for: indexPath) as? FavoriteAuthorsCollectionViewCell
             
+            cell?.configure(with: homeViewModel.favoriteAuthors[indexPath.row])
             
             return cell ?? UICollectionViewCell()
         }
@@ -142,6 +145,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         return UICollectionViewCell()
     }
+}
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -163,6 +169,28 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 }
 
+extension HomeViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        
+        if collectionView == homeView.myBooksView.favoriteBooksCollectionView {
+            
+            let book = homeViewModel.favoriteBooks[indexPath.row]
+            
+            navigateToBookInfo(with: book)
+        }
+        
+        if collectionView == homeView.myBooksView.favoriteAuthorsCollectionView {
+
+        }
+
+        if collectionView == homeView.myBooksView.categoryMenuCollectionView {
+
+        }
+    }
+}
+
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
@@ -178,5 +206,30 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                                                  for: indexPath) as? LibraryBooksTableViewCell
         
         return cell ?? UITableViewCell()
+    }
+}
+
+extension HomeViewController: HomeViewModelDelegate {
+        
+    func didGetFavoriteBooks() {
+        
+//        homeView.myBooksView.favoriteBooksCollectionView.reloadData()
+        homeViewModel.getFavoriteAuthors()
+    }
+    
+    func didFailToGetFavoriteBooks() {
+        
+        //TODO: implement error logic
+    }
+    
+    func didGetFavoriteAuthors() {
+        
+        homeView.myBooksView.favoriteBooksCollectionView.reloadData()
+        homeView.myBooksView.favoriteAuthorsCollectionView.reloadData()
+    }
+    
+    func didFailToGetFavoriteAuthors() {
+        
+        //TODO: implement error logic
     }
 }
