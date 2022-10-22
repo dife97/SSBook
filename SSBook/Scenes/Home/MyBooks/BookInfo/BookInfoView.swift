@@ -19,7 +19,6 @@ class BookInfoView: UIView {
     
     //MARK: - UI
     
-    //TODO: insert circled background view
     private lazy var backButton: UIButton = {
         let button = UIButton(type: .system)
         
@@ -31,7 +30,15 @@ class BookInfoView: UIView {
         return button
     }()
     
-    //TODO: tres pontinhos menuImage
+    private lazy var optionsButton: UIButton = {
+        let button = UIButton(type: .system)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .white
+        button.setImage(UIImage(named: "optionsIcon"), for: .normal)
+        
+        return button
+    }()
     
     lazy var bookCoverImageView: SSImageView = {
         let imageView = SSImageView(bookImage: bookData.bookCoverImageName)
@@ -122,6 +129,8 @@ class BookInfoView: UIView {
         
         configureBackButton()
         
+        configureOptionsButton()
+        
         configureBookInfoContainerView()
     }
     
@@ -134,6 +143,18 @@ class BookInfoView: UIView {
             backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             backButton.heightAnchor.constraint(equalToConstant: 14),
             backButton.widthAnchor.constraint(equalToConstant: 16)
+        ])
+    }
+    
+    private func configureOptionsButton() {
+        
+        addSubview(optionsButton)
+        
+        NSLayoutConstraint.activate([
+            optionsButton.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
+            optionsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+            optionsButton.heightAnchor.constraint(equalToConstant: 14),
+            optionsButton.widthAnchor.constraint(equalToConstant: 16)
         ])
     }
     

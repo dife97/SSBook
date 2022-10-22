@@ -93,7 +93,6 @@ class HomeViewController: UIViewController {
         let bookInfoViewController = BookInfoViewController(bookData: bookData)
         
         navigationController?.pushViewController(bookInfoViewController, animated: true)
-        
     }
 }
 

@@ -69,13 +69,6 @@ class HomeViewModel {
                 
                 if let books = books {
                     self.downloadBookImages(of: books)
-//
-//                    for index in 0..<self.favoriteBooks.count {
-//
-//                        self.booksCategory.insert(self.favoriteBooks[index].category)
-//                    }
-//
-//                    print("COUNT = \(self.booksCategory.count)")
                 }
                 
             case .failure(_):
