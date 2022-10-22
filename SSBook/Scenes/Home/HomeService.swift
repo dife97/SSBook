@@ -9,6 +9,37 @@ import Foundation
 
 struct HomeService {
     
+    func fetchUserPicture(onComplete: @escaping (Result<String?, NSError>) -> Void) {
+        
+        apolloClient.fetch(query: UserPictureQuery()) { result in
+            
+            switch result {
+                
+            case .success(_):
+                
+                guard let data = try? result.get().data else {
+                    print("[HomeService] Did fail to retrieve data. Will return from fetchUserPicture()")
+                    
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    
+                    onComplete(.success(data.userPicture))
+                }
+                
+            case .failure(let error as NSError):
+
+                print("[HomeService] Failed to fetch user picture with error: \(error.code) - \(error.localizedDescription).")
+                
+                DispatchQueue.main.async {
+                    
+                    onComplete(.failure(error))
+                }
+            }
+        }
+    }
+    
     func fetchFavoriteBooks(onComplete: @escaping (Result<[BookModel]?, NSError>) -> Void) {
         
         apolloClient.fetch(query: FavoriteBooksQuery()) { result in
@@ -25,7 +56,7 @@ struct HomeService {
                     return
                 }
                 
-                for book in  data.favoriteBooks {
+                for book in data.favoriteBooks {
                     
                     if book.isFavorite {
                         favoriteBooks.append(BookModel(

@@ -31,7 +31,9 @@ class HomeViewController: UIViewController {
         
         configureDelegates()
         
-        homeViewModel.getFavoriteBooks()
+        homeViewModel.getUserPicture()
+//        homeViewModel.getFavoriteBooks()
+//        homeViewModel.getFavoriteAuthors()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -210,10 +212,21 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension HomeViewController: HomeViewModelDelegate {
+    
+    func didGetUserPicture() {
+        
+        homeView.userPictureImageView.image = homeViewModel.userPicture
+        
+        homeViewModel.getFavoriteBooks()
+    }
+    
+    func didFailToGetUserPicture() {
+        
+        //TODO: implement error logic
+    }
         
     func didGetFavoriteBooks() {
-        
-//        homeView.myBooksView.favoriteBooksCollectionView.reloadData()
+
         homeViewModel.getFavoriteAuthors()
     }
     

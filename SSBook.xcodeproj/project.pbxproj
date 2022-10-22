@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31028C3A29037B70001D61D8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31028C3929037B70001D61D8 /* API.swift */; };
 		310ADD1428FB7E8C00DB748B /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 310ADD1328FB7E8C00DB748B /* Apollo */; };
 		310ADD1628FB7EA800DB748B /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 310ADD1528FB7EA800DB748B /* schema.json */; };
 		310ADD1828FB7EB300DB748B /* HomeViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 310ADD1728FB7EB300DB748B /* HomeViewController.graphql */; };
-		310ADD1B28FB7F5400DB748B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310ADD1A28FB7F5400DB748B /* API.swift */; };
 		310ADD1D28FC14C100DB748B /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310ADD1C28FC14C000DB748B /* DummyViewController.swift */; };
 		310ADD2028FC311300DB748B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310ADD1F28FC311300DB748B /* HomeView.swift */; };
 		310ADD2228FC317400DB748B /* MyBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310ADD2128FC317400DB748B /* MyBooksView.swift */; };
@@ -41,9 +41,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31028C3929037B70001D61D8 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		310ADD1528FB7EA800DB748B /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		310ADD1728FB7EB300DB748B /* HomeViewController.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HomeViewController.graphql; sourceTree = "<group>"; };
-		310ADD1A28FB7F5400DB748B /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		310ADD1C28FC14C000DB748B /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 		310ADD1F28FC311300DB748B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		310ADD2128FC317400DB748B /* MyBooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBooksView.swift; sourceTree = "<group>"; };
@@ -144,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				310ADD1728FB7EB300DB748B /* HomeViewController.graphql */,
-				310ADD1A28FB7F5400DB748B /* API.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -170,6 +169,7 @@
 		31811DBF2900FF3700B0F154 /* Files */ = {
 			isa = PBXGroup;
 			children = (
+				31028C3929037B70001D61D8 /* API.swift */,
 				310ADD1528FB7EA800DB748B /* schema.json */,
 				31EAA19C28FB7CEF00F95DCB /* LaunchScreen.storyboard */,
 				31EAA19F28FB7CEF00F95DCB /* Info.plist */,
@@ -260,10 +260,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 31EAA1A228FB7CEF00F95DCB /* Build configuration list for PBXNativeTarget "SSBook" */;
 			buildPhases = (
+				310ADD1928FB7EE900DB748B /* Generate GraphQL API */,
 				31EAA18A28FB7CEE00F95DCB /* Sources */,
 				31EAA18B28FB7CEE00F95DCB /* Frameworks */,
 				31EAA18C28FB7CEE00F95DCB /* Resources */,
-				310ADD1928FB7EE900DB748B /* Generate GraphQL API */,
 			);
 			buildRules = (
 			);
@@ -361,7 +361,6 @@
 				31EAA19628FB7CEE00F95DCB /* HomeViewController.swift in Sources */,
 				31811DC52901036400B0F154 /* HomeViewModel.swift in Sources */,
 				31EAA19228FB7CEE00F95DCB /* AppDelegate.swift in Sources */,
-				310ADD1B28FB7F5400DB748B /* API.swift in Sources */,
 				31811DC8290103E100B0F154 /* BookModel.swift in Sources */,
 				310ADD2028FC311300DB748B /* HomeView.swift in Sources */,
 				310ADD1D28FC14C100DB748B /* DummyViewController.swift in Sources */,
@@ -372,6 +371,7 @@
 				31E06E3E28FE28690089EA6D /* LibraryBooksTableViewCell.swift in Sources */,
 				31E06E4828FEB1990089EA6D /* SSView.swift in Sources */,
 				31EAA19428FB7CEE00F95DCB /* SceneDelegate.swift in Sources */,
+				31028C3A29037B70001D61D8 /* API.swift in Sources */,
 				3189F37328FCE74400030CD4 /* FavoriteBookCollectionViewCell.swift in Sources */,
 				31E06E4628FEB1930089EA6D /* SSScrollView.swift in Sources */,
 				31811DCC29022EAA00B0F154 /* HomeService.swift in Sources */,

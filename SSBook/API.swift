@@ -484,3 +484,47 @@ public final class FavoriteAuthorsQuery: GraphQLQuery {
     }
   }
 }
+
+public final class UserPictureQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query UserPicture {
+      userPicture
+    }
+    """
+
+  public let operationName: String = "UserPicture"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("userPicture", type: .nonNull(.scalar(String.self))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(userPicture: String) {
+      self.init(unsafeResultMap: ["__typename": "Query", "userPicture": userPicture])
+    }
+
+    public var userPicture: String {
+      get {
+        return resultMap["userPicture"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "userPicture")
+      }
+    }
+  }
+}

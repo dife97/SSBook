@@ -10,6 +10,9 @@ import Apollo
 
 protocol HomeViewModelDelegate: AnyObject {
     
+    func didGetUserPicture()
+    func didFailToGetUserPicture()
+    
     func didGetFavoriteBooks()
     func didFailToGetFavoriteBooks()
     
@@ -19,12 +22,32 @@ protocol HomeViewModelDelegate: AnyObject {
 
 class HomeViewModel {
     
+    var userPicture: UIImage?
     var favoriteBooks: [FavoriteBookModel] = []
     var favoriteAuthors: [FavoriteAuthorModel] = []
     
     weak var delegate: HomeViewModelDelegate?
     
     private let service = HomeService()
+    
+    func getUserPicture() {
+        
+        service.fetchUserPicture { response in
+            
+            switch response {
+                
+            case .success(let userPicture):
+                
+                if let userPicture = userPicture {
+                    self.downloadUserPictureImage(of: userPicture)
+                }
+                
+            case .failure(_):
+                
+                self.delegate?.didFailToGetUserPicture()
+            }
+        }
+    }
     
     func getFavoriteBooks() {
         
@@ -76,6 +99,32 @@ class HomeViewModel {
         }
     }
     
+    private func downloadUserPictureImage(of userPicture: String) {
+        
+        guard let url = URL(string: userPicture) else { return }
+        
+        do {
+            let imageData = try Data(contentsOf: url)
+
+            let downloadedImage = UIImage(data: imageData)
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.userPicture = downloadedImage
+                
+                self?.delegate?.didGetUserPicture()
+            }
+        } catch {
+            print("[HomeViewModel] Failed to download user picture image with error: \(error.localizedDescription)")
+            
+            DispatchQueue.main.async { [weak self] in
+                
+                self?.userPicture = nil
+                
+                self?.delegate?.didFailToGetFavoriteBooks()
+            }
+        }
+    }
+    
     private func downloadBookImages(of books: [BookModel]) {
         
         for book in books {
@@ -95,7 +144,7 @@ class HomeViewModel {
                     isFavorite: book.isFavorite)
                 )
             } catch {
-                print("[HomeViewModel] Failed to download image with error: \(error.localizedDescription)")
+                print("[HomeViewModel] Failed to download book image with error: \(error.localizedDescription)")
                 
                 DispatchQueue.main.async { [weak self] in
                         
@@ -127,7 +176,7 @@ class HomeViewModel {
                     booksCount: author.booksCount
                 ))
             } catch {
-                print("[HomeViewModel] Failed to download image with error: \(error.localizedDescription)")
+                print("[HomeViewModel] Failed to download author image with error: \(error.localizedDescription)")
                 
                 DispatchQueue.main.async {
                         

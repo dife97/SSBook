@@ -28,13 +28,13 @@ class HomeView: UIView {
         return imageview
     }()
     
-    private lazy var userPictureImageView: UIImageView = {
+    lazy var userPictureImageView: UIImageView = {
         let imageview = UIImageView(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
         
         imageview.translatesAutoresizingMaskIntoConstraints = false
         imageview.layer.cornerRadius = imageview.bounds.size.width * 0.5
         imageview.clipsToBounds = true
-        imageview.contentMode = .scaleAspectFit
+        imageview.contentMode = .scaleAspectFill
         imageview.tintColor = UIColor(named: "mainGray")
         imageview.image = UIImage(systemName: "person.circle.fill")
         

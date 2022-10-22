@@ -28,3 +28,7 @@ query FavoriteAuthors {
         isFavorite
     }
 }
+
+query UserPicture {
+    userPicture
+}
