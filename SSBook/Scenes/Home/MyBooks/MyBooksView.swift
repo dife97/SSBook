@@ -113,6 +113,7 @@ class MyBooksView: UIView {
         )
         
         let layout = UICollectionViewFlowLayout()
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
@@ -132,7 +133,8 @@ class MyBooksView: UIView {
         let tableView = UITableView()
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.rowHeight = 80
+        tableView.rowHeight = 90
+        tableView.showsVerticalScrollIndicator = false
         tableView.register(LibraryBooksTableViewCell.self,
                            forCellReuseIdentifier: LibraryBooksTableViewCell.identifier)
         
@@ -275,7 +277,8 @@ class MyBooksView: UIView {
         categoryMenuCollectionView.dataSource = dataSource
     }
     
-    func configureLibraryBooksTableView(delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
+    func configureLibraryBooksTableView(delegate: UITableViewDelegate,
+                                        dataSource: UITableViewDataSource) {
         
         libraryBooksTableView.delegate = delegate
         libraryBooksTableView.dataSource = dataSource

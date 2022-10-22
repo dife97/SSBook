@@ -67,8 +67,20 @@ class HomeView: UIView {
         return view
     }()
     
+    lazy var loadingActivityIndicatorView: UIActivityIndicatorView = {
+        let loading = UIActivityIndicatorView(style: .medium)
+        
+        loading.translatesAutoresizingMaskIntoConstraints = false
+        loading.color = UIColor(named: "mainPurple")
+        loading.startAnimating()
+        
+        return loading
+    }()
+    
     lazy var myBooksView: MyBooksView = {
         let view = MyBooksView()
+        
+        view.isHidden = true
         
         return view
     }()
@@ -90,6 +102,8 @@ class HomeView: UIView {
         configureTitleLabels()
         
         configureUnderlineView()
+        
+        configureLoading()
         
         configureMyBooksView()
     }
@@ -142,6 +156,16 @@ class HomeView: UIView {
             underlineView.centerXAnchor.constraint(equalTo: myBookTitleButton.centerXAnchor),
             underlineView.heightAnchor.constraint(equalToConstant: 4),
             underlineView.widthAnchor.constraint(equalToConstant: 94)
+        ])
+    }
+    
+    private func configureLoading() {
+        
+        addSubview(loadingActivityIndicatorView)
+        
+        NSLayoutConstraint.activate([
+            loadingActivityIndicatorView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            loadingActivityIndicatorView.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
     }
     

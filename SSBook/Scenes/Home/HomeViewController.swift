@@ -32,8 +32,6 @@ class HomeViewController: UIViewController {
         configureDelegates()
         
         homeViewModel.getUserPicture()
-//        homeViewModel.getFavoriteBooks()
-//        homeViewModel.getFavoriteAuthors()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,7 +43,7 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        configureScrollViewContentSize()
+//        configureScrollViewContentSize()
     }
     
     private func configureScrollViewContentSize() {
@@ -53,11 +51,13 @@ class HomeViewController: UIViewController {
         let favoriteBooksViewHeight = homeView.myBooksView.favoriteBooksView.frame.size.height
         
         let favoriteAuthorsViewHeight = homeView.myBooksView.favoriteAuthorsView.frame.size.height
-
-        let height: CGFloat = favoriteBooksViewHeight + favoriteAuthorsViewHeight + customViewHeight + 92
         
-        homeView.myBooksView.libraryView.heightAnchor.constraint(equalToConstant: customViewHeight).isActive = true
-        homeView.myBooksView.libraryBooksTableView.heightAnchor.constraint(equalToConstant: customViewHeight).isActive = true
+        let libraryTableViewHeight: CGFloat = CGFloat(homeViewModel.favoriteBooks.count) * 90
+
+        let height: CGFloat = favoriteBooksViewHeight + favoriteAuthorsViewHeight + libraryTableViewHeight + 100
+        
+        homeView.myBooksView.libraryView.heightAnchor.constraint(equalToConstant: libraryTableViewHeight).isActive = true
+        homeView.myBooksView.libraryBooksTableView.heightAnchor.constraint(equalToConstant: libraryTableViewHeight).isActive = true
         homeView.myBooksView.containerView.heightAnchor.constraint(equalToConstant: height).isActive = true
         homeView.myBooksView.scrollView.contentSize = CGSize(width: homeView.myBooksView.frame.size.width, height: height)
     }
@@ -110,6 +110,11 @@ extension HomeViewController: UICollectionViewDataSource {
             return homeViewModel.favoriteAuthors.count
         }
         
+        if collectionView == homeView.myBooksView.categoryMenuCollectionView {
+            
+            return homeViewModel.booksCategory.count
+        }
+        
         return 1
     }
     
@@ -141,6 +146,14 @@ extension HomeViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier,
                                                           for: indexPath) as? CategoryCollectionViewCell
             
+            if indexPath.row == 0 {
+                cell?.configure(with: homeViewModel.booksCategory[indexPath.row])
+                
+                cell?.contentView.backgroundColor = UIColor(named: "mainPurple")
+                cell?.categoryLabel.textColor = .white
+            } else {
+                cell?.configure(with: homeViewModel.booksCategory[indexPath.row])
+            }
             
             return cell ?? UICollectionViewCell()
         }
@@ -164,7 +177,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         }
         
         if collectionView == homeView.myBooksView.categoryMenuCollectionView {
-            return CGSize(width: 92, height: 32)
+            
+            let cell: CategoryCollectionViewCell = CategoryCollectionViewCell()
+                    
+            let size: CGSize = cell.contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+            return CGSize(width: size.width, height: 32)
         }
         
         return CGSize()
@@ -182,23 +199,15 @@ extension HomeViewController: UICollectionViewDelegate {
             
             navigateToBookInfo(with: book)
         }
-        
-        if collectionView == homeView.myBooksView.favoriteAuthorsCollectionView {
-
-        }
-
-        if collectionView == homeView.myBooksView.categoryMenuCollectionView {
-
-        }
     }
 }
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        
-        return 6
+
+        return homeViewModel.favoriteBooks.count
     }
     
     func tableView(_ tableView: UITableView,
@@ -207,15 +216,22 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LibraryBooksTableViewCell",
                                                  for: indexPath) as? LibraryBooksTableViewCell
         
+        cell?.configure(with: homeViewModel.favoriteBooks[indexPath.row])
+        
         return cell ?? UITableViewCell()
+    }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
     }
 }
 
 extension HomeViewController: HomeViewModelDelegate {
     
     func didGetUserPicture() {
-        
-        homeView.userPictureImageView.image = homeViewModel.userPicture
         
         homeViewModel.getFavoriteBooks()
     }
@@ -237,8 +253,16 @@ extension HomeViewController: HomeViewModelDelegate {
     
     func didGetFavoriteAuthors() {
         
+        homeView.userPictureImageView.image = homeViewModel.userPicture
         homeView.myBooksView.favoriteBooksCollectionView.reloadData()
         homeView.myBooksView.favoriteAuthorsCollectionView.reloadData()
+        homeView.myBooksView.libraryBooksTableView.reloadData()
+        
+        configureScrollViewContentSize()
+        
+        homeView.loadingActivityIndicatorView.stopAnimating()
+        
+        homeView.myBooksView.isHidden = false
     }
     
     func didFailToGetFavoriteAuthors() {

@@ -64,7 +64,8 @@ struct HomeService {
                             name: book.name,
                             author: book.author.name,
                             description: book.description,
-                            isFavorite: book.isFavorite
+                            isFavorite: book.isFavorite,
+                            category: book.category.rawValue
                         ))
                     }
                 }

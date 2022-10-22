@@ -23,7 +23,11 @@ protocol HomeViewModelDelegate: AnyObject {
 class HomeViewModel {
     
     var userPicture: UIImage?
+    
     var favoriteBooks: [FavoriteBookModel] = []
+    
+    var booksCategory: [String] = ["Todos", "Romance", "Aventura", "Comédia", "Horror", "Tecnologia", "Viagem"]
+    
     var favoriteAuthors: [FavoriteAuthorModel] = []
     
     weak var delegate: HomeViewModelDelegate?
@@ -65,6 +69,13 @@ class HomeViewModel {
                 
                 if let books = books {
                     self.downloadBookImages(of: books)
+//
+//                    for index in 0..<self.favoriteBooks.count {
+//
+//                        self.booksCategory.insert(self.favoriteBooks[index].category)
+//                    }
+//
+//                    print("COUNT = \(self.booksCategory.count)")
                 }
                 
             case .failure(_):
@@ -91,7 +102,7 @@ class HomeViewModel {
                 if let favoriteAuthors = favoriteAuthors {
                     self.downloadAuthorImages(of: favoriteAuthors)
                 }
-
+                
             case .failure(_):
 
                 self.delegate?.didFailToGetFavoriteAuthors()
@@ -141,8 +152,9 @@ class HomeViewModel {
                     name: book.name,
                     author: book.author,
                     description: book.description,
-                    isFavorite: book.isFavorite)
-                )
+                    isFavorite: book.isFavorite,
+                    category: book.category
+                ))
             } catch {
                 print("[HomeViewModel] Failed to download book image with error: \(error.localizedDescription)")
                 

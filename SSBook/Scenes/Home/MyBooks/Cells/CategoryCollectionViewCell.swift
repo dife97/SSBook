@@ -10,22 +10,10 @@ import UIKit
 class CategoryCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "CategoryCollectionViewCell"
-    
-    lazy var outterView: UIView = {
-        let view = UIView()
-        
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 16
-        view.layer.masksToBounds = true
-        view.layer.borderColor = UIColor(named: "grayBorderColor")?.cgColor
-        view.layer.borderWidth = 1
-        
-        return view
-    }()
 
     lazy var categoryLabel: SSLabel = {
         let label = SSLabel(
-            text: "Romance",
+            text: "",
             size: 14,
             font: "Roboto-Medium")
 
@@ -47,20 +35,24 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     private func configureView() {
         
-        contentView.addSubview(outterView)
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.layer.cornerRadius = 14 /// figma was 16 points, but it was resulting in a not perfect rounded result.
+        contentView.clipsToBounds = true
+        contentView.layer.borderColor = UIColor(named: "grayBorderColor")?.cgColor
+        contentView.layer.borderWidth = 1
         
-        outterView.addSubview(categoryLabel)
+        contentView.addSubview(categoryLabel)
         
         NSLayoutConstraint.activate([
-            outterView.topAnchor.constraint(equalTo: topAnchor),
-            outterView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            outterView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            outterView.bottomAnchor.constraint(equalTo: bottomAnchor),
-
-            categoryLabel.topAnchor.constraint(equalTo: outterView.topAnchor, constant: 6),
-            categoryLabel.leadingAnchor.constraint(equalTo: outterView.leadingAnchor, constant: 16),
-            categoryLabel.trailingAnchor.constraint(equalTo: outterView.trailingAnchor, constant: -16),
-            categoryLabel.bottomAnchor.constraint(equalTo: outterView.bottomAnchor, constant: -6),
+            categoryLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 6),
+            categoryLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            categoryLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            categoryLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -6),
         ])
+    }
+    
+    func configure(with category: String) {
+        
+        categoryLabel.text = category
     }
 }

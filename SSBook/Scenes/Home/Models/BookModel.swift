@@ -14,6 +14,7 @@ struct BookModel {
     let author: String
     let description: String
     let isFavorite: Bool
+    let category: String
 }
 
 struct FavoriteBookModel {
@@ -23,4 +24,5 @@ struct FavoriteBookModel {
     let author: String
     let description: String
     let isFavorite: Bool
+    let category: String
 }

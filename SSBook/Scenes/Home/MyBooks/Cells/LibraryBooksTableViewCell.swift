@@ -11,11 +11,11 @@ class LibraryBooksTableViewCell: UITableViewCell {
     
     static let identifier = "LibraryBooksTableViewCell"
         
-    let bookCoverImageView = SSImageView(imageName: "dummyBookCover")
+    let bookCoverImageView = SSImageView(imageName: "dummyBook")
     
     lazy var booktTitleLabel: SSLabel = {
         let label = SSLabel(
-            text: "O duque e eu (Os Bridgertons não sei o que..",
+            text: "",
             size: 16)
         
         label.numberOfLines = 2
@@ -25,7 +25,7 @@ class LibraryBooksTableViewCell: UITableViewCell {
     
     lazy var bookAuthorLabel: SSLabel = {
         let label = SSLabel(
-            text: "Julia Quinn",
+            text: "",
             size: 14,
             font: "Roboto-Regular"
         )
@@ -65,5 +65,14 @@ class LibraryBooksTableViewCell: UITableViewCell {
             bookAuthorLabel.topAnchor.constraint(equalTo: booktTitleLabel.bottomAnchor, constant: 6),
             bookAuthorLabel.leadingAnchor.constraint(equalTo: bookCoverImageView.trailingAnchor, constant: 10)
         ])
+    }
+    
+    func configure(with book: FavoriteBookModel) {
+        
+        bookCoverImageView.image = book.coverImage
+        
+        booktTitleLabel.text = book.name
+        
+        bookAuthorLabel.text = book.author
     }
 }
