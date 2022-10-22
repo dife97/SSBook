@@ -47,6 +47,7 @@ class LibraryBooksTableViewCell: UITableViewCell {
     }
     
     private func configureView() {
+        selectionStyle = .none
         
         contentView.addSubview(bookCoverImageView)
         contentView.addSubview(booktTitleLabel)

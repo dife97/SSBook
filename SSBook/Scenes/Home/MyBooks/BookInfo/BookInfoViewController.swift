@@ -23,6 +23,9 @@ class BookInfoViewController: UIViewController {
     private lazy var bookInfoView: BookInfoView = {
         let view = BookInfoView(bookData: bookData)
         
+        view.booktTitleLabel.text = bookData.bookTitleText
+        view.bookAuthorLabel.text = bookData.authorNameText
+        
         view.didTapBackButton = { self.didTapBackButton() }
         view.didTapIsFavoriteButton = { self.toggleFavoriteButton() }
         

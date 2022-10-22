@@ -44,7 +44,7 @@ class BookInfoView: UIView {
     let bookInfoContainerView = SSView(backgroundColor: .white)
     
     lazy var booktTitleLabel: SSLabel = {
-        let label = SSLabel(text: "O duque e eu (Os Bridgertons não sei o que..")
+        let label = SSLabel(text: "")
         
         label.numberOfLines = 2
         
@@ -53,7 +53,7 @@ class BookInfoView: UIView {
     
     lazy var bookAuthorLabel: SSLabel = {
         let label = SSLabel(
-            text: "Julia Quinn",
+            text: "",
             size: 14,
             font: "Roboto-Regular"
         )
