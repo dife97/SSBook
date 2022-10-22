@@ -10,10 +10,11 @@ import UIKit
 class HomeView: UIView {
     
     private lazy var headerView: UIView = {
-        let view = UIView()
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 118))
         
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
+        view.roundCornerView(corners: .bottomRight, radius: 32)
         
         return view
     }()
@@ -58,11 +59,11 @@ class HomeView: UIView {
     }()
     
     private lazy var underlineView: UIView = {
-        let view = UIView()
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 94, height: 4))
         
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(named: "mainPurple")
-        view.layer.cornerRadius = 2
+        view.roundCornerView(corners: [.topRight, .topLeft], radius: 2)
         
         return view
     }()
@@ -152,7 +153,7 @@ class HomeView: UIView {
         headerView.addSubview(underlineView)
         
         NSLayoutConstraint.activate([
-            underlineView.topAnchor.constraint(equalTo: myBookTitleButton.bottomAnchor, constant: 12),
+            underlineView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor),
             underlineView.centerXAnchor.constraint(equalTo: myBookTitleButton.centerXAnchor),
             underlineView.heightAnchor.constraint(equalToConstant: 4),
             underlineView.widthAnchor.constraint(equalToConstant: 94)

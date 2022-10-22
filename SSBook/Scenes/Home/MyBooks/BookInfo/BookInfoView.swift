@@ -41,7 +41,14 @@ class BookInfoView: UIView {
         return imageView
     }()
     
-    let bookInfoContainerView = SSView(backgroundColor: .white)
+    lazy var bookInfoContainerView: SSView = {
+        let view = SSView(backgroundColor: .white)
+        
+        view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 900)
+        view.roundCornerView(corners: .topLeft, radius: 32)
+        
+        return view
+    }()
     
     lazy var booktTitleLabel: SSLabel = {
         let label = SSLabel(text: "")
@@ -172,7 +179,7 @@ class BookInfoView: UIView {
             bookDescriptionTextView.topAnchor.constraint(equalTo: bookAuthorLabel.bottomAnchor, constant: 20),
             bookDescriptionTextView.leadingAnchor.constraint(equalTo: bookInfoContainerView.leadingAnchor, constant: 16),
             bookDescriptionTextView.trailingAnchor.constraint(equalTo: bookInfoContainerView.trailingAnchor, constant: -16),
-            bookDescriptionTextView.bottomAnchor.constraint(equalTo: bookInfoContainerView.bottomAnchor)
+            bookDescriptionTextView.bottomAnchor.constraint(equalTo: bookInfoContainerView.bottomAnchor, constant: -32)
         ])
     }
     

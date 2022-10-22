@@ -51,6 +51,8 @@ class BookInfoViewController: UIViewController {
         super.viewDidLoad()
         
         toggleFavoriteButton()
+        
+        bookInfoView.bookInfoContainerView.roundCornerView(corners: .topLeft, radius: 32)
     }
     
     private func didTapBackButton() {

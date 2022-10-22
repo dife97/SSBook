@@ -55,10 +55,11 @@ class MyBooksView: UIView {
     }()
     
     lazy var favoriteAuthorsView: UIView = {
-        let view = UIView()
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 175))
         
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
+        view.roundCornerView(corners: .topLeft, radius: 32)
         
         return view
     }()

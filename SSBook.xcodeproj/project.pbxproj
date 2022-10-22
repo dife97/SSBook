@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		31028C3A29037B70001D61D8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31028C3929037B70001D61D8 /* API.swift */; };
+		31028C3E2903A4D1001D61D8 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31028C3D2903A4D1001D61D8 /* CornerRadius.swift */; };
 		310ADD1428FB7E8C00DB748B /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 310ADD1328FB7E8C00DB748B /* Apollo */; };
 		310ADD1628FB7EA800DB748B /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 310ADD1528FB7EA800DB748B /* schema.json */; };
 		310ADD1828FB7EB300DB748B /* HomeViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 310ADD1728FB7EB300DB748B /* HomeViewController.graphql */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		31028C3929037B70001D61D8 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		31028C3D2903A4D1001D61D8 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		310ADD1528FB7EA800DB748B /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		310ADD1728FB7EB300DB748B /* HomeViewController.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HomeViewController.graphql; sourceTree = "<group>"; };
 		310ADD1C28FC14C000DB748B /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31028C3B2903A49B001D61D8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				31028C3D2903A4D1001D61D8 /* CornerRadius.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		31028C3C2903A4A3001D61D8 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				31811DBA2900FE8D00B0F154 /* DesignSystem */,
+				31028C3B2903A49B001D61D8 /* Extensions */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
 		310ADD1E28FC30DE00DB748B /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,7 +266,7 @@
 				31811DBD2900FECE00B0F154 /* AppDelegate */,
 				31811DBE2900FED900B0F154 /* Scenes */,
 				31811DBC2900FEB800B0F154 /* Network */,
-				31811DBA2900FE8D00B0F154 /* DesignSystem */,
+				31028C3C2903A4A3001D61D8 /* Infrastructure */,
 				31811DBF2900FF3700B0F154 /* Files */,
 			);
 			path = SSBook;
@@ -370,6 +389,7 @@
 				31E06E4428FEAC120089EA6D /* SSImageView.swift in Sources */,
 				31E06E3E28FE28690089EA6D /* LibraryBooksTableViewCell.swift in Sources */,
 				31E06E4828FEB1990089EA6D /* SSView.swift in Sources */,
+				31028C3E2903A4D1001D61D8 /* CornerRadius.swift in Sources */,
 				31EAA19428FB7CEE00F95DCB /* SceneDelegate.swift in Sources */,
 				31028C3A29037B70001D61D8 /* API.swift in Sources */,
 				3189F37328FCE74400030CD4 /* FavoriteBookCollectionViewCell.swift in Sources */,

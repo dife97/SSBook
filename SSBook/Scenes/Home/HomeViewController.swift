@@ -20,7 +20,6 @@ class HomeViewController: UIViewController {
     override func loadView() {
         
         view = homeView
-
         view.backgroundColor = UIColor(named: "mainBackground")
     }
     
@@ -32,6 +31,8 @@ class HomeViewController: UIViewController {
         configureDelegates()
         
         homeViewModel.getUserPicture()
+        
+        navigationController?.setStatusBar(backgroundColor: .white)
     }
     
     override func viewWillAppear(_ animated: Bool) {
