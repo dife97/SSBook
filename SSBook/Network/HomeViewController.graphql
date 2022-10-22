@@ -1,0 +1,34 @@
+query FavoriteBooks {
+    favoriteBooks {
+        id
+        name
+        author {
+            id
+            name
+            picture
+            booksCount
+            isFavorite
+            books {
+                id
+            }
+        }
+        cover
+        description
+        isFavorite
+        category
+    }
+}
+
+query FavoriteAuthors {
+    favoriteAuthors {
+        id
+        name
+        picture
+        booksCount
+        isFavorite
+    }
+}
+
+query UserPicture {
+    userPicture
+}

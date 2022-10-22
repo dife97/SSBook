@@ -7,18 +7,71 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31028C3A29037B70001D61D8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31028C3929037B70001D61D8 /* API.swift */; };
+		31028C3E2903A4D1001D61D8 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31028C3D2903A4D1001D61D8 /* CornerRadius.swift */; };
+		310ADD1428FB7E8C00DB748B /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 310ADD1328FB7E8C00DB748B /* Apollo */; };
+		310ADD1628FB7EA800DB748B /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 310ADD1528FB7EA800DB748B /* schema.json */; };
+		310ADD1828FB7EB300DB748B /* HomeViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 310ADD1728FB7EB300DB748B /* HomeViewController.graphql */; };
+		310ADD1D28FC14C100DB748B /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310ADD1C28FC14C000DB748B /* DummyViewController.swift */; };
+		310ADD2028FC311300DB748B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310ADD1F28FC311300DB748B /* HomeView.swift */; };
+		310ADD2228FC317400DB748B /* MyBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310ADD2128FC317400DB748B /* MyBooksView.swift */; };
+		310ADD2428FC31C100DB748B /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310ADD2328FC31C100DB748B /* DummyView.swift */; };
+		310ADD2728FC445200DB748B /* SSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310ADD2628FC445200DB748B /* SSButton.swift */; };
+		310ADD2C28FC48A300DB748B /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 310ADD2928FC48A300DB748B /* Roboto-Medium.ttf */; };
+		310ADD2D28FC48A300DB748B /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 310ADD2A28FC48A300DB748B /* Roboto-Regular.ttf */; };
+		310ADD2E28FC48A300DB748B /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 310ADD2B28FC48A300DB748B /* Roboto-Bold.ttf */; };
+		310ADD3028FCCD0B00DB748B /* SSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310ADD2F28FCCD0B00DB748B /* SSLabel.swift */; };
+		31811DC52901036400B0F154 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31811DC42901036400B0F154 /* HomeViewModel.swift */; };
+		31811DC8290103E100B0F154 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31811DC7290103E100B0F154 /* BookModel.swift */; };
+		31811DCA290103FC00B0F154 /* AuthorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31811DC9290103FC00B0F154 /* AuthorModel.swift */; };
+		31811DCC29022EAA00B0F154 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31811DCB29022EAA00B0F154 /* HomeService.swift */; };
+		3189F37328FCE74400030CD4 /* FavoriteBookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3189F37228FCE74400030CD4 /* FavoriteBookCollectionViewCell.swift */; };
+		3189F37528FD04AD00030CD4 /* FavoriteAuthorsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3189F37428FD04AD00030CD4 /* FavoriteAuthorsCollectionViewCell.swift */; };
+		31906AFA28FD596D00BD2BEA /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31906AF928FD596D00BD2BEA /* CategoryCollectionViewCell.swift */; };
+		31E06E3E28FE28690089EA6D /* LibraryBooksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E06E3D28FE28690089EA6D /* LibraryBooksTableViewCell.swift */; };
+		31E06E4028FE3FBE0089EA6D /* BookInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E06E3F28FE3FBE0089EA6D /* BookInfoViewController.swift */; };
+		31E06E4228FE41390089EA6D /* BookInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E06E4128FE41390089EA6D /* BookInfoView.swift */; };
+		31E06E4428FEAC120089EA6D /* SSImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E06E4328FEAC120089EA6D /* SSImageView.swift */; };
+		31E06E4628FEB1930089EA6D /* SSScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E06E4528FEB1930089EA6D /* SSScrollView.swift */; };
+		31E06E4828FEB1990089EA6D /* SSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E06E4728FEB1990089EA6D /* SSView.swift */; };
 		31EAA19228FB7CEE00F95DCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAA19128FB7CEE00F95DCB /* AppDelegate.swift */; };
 		31EAA19428FB7CEE00F95DCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAA19328FB7CEE00F95DCB /* SceneDelegate.swift */; };
-		31EAA19628FB7CEE00F95DCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAA19528FB7CEE00F95DCB /* ViewController.swift */; };
+		31EAA19628FB7CEE00F95DCB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAA19528FB7CEE00F95DCB /* HomeViewController.swift */; };
 		31EAA19B28FB7CEF00F95DCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31EAA19A28FB7CEF00F95DCB /* Assets.xcassets */; };
 		31EAA19E28FB7CEF00F95DCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31EAA19C28FB7CEF00F95DCB /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31028C3929037B70001D61D8 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		31028C3D2903A4D1001D61D8 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
+		310ADD1528FB7EA800DB748B /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		310ADD1728FB7EB300DB748B /* HomeViewController.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HomeViewController.graphql; sourceTree = "<group>"; };
+		310ADD1C28FC14C000DB748B /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
+		310ADD1F28FC311300DB748B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		310ADD2128FC317400DB748B /* MyBooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBooksView.swift; sourceTree = "<group>"; };
+		310ADD2328FC31C100DB748B /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
+		310ADD2628FC445200DB748B /* SSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSButton.swift; sourceTree = "<group>"; };
+		310ADD2928FC48A300DB748B /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		310ADD2A28FC48A300DB748B /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		310ADD2B28FC48A300DB748B /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		310ADD2F28FCCD0B00DB748B /* SSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLabel.swift; sourceTree = "<group>"; };
+		31811DC42901036400B0F154 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		31811DC7290103E100B0F154 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
+		31811DC9290103FC00B0F154 /* AuthorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorModel.swift; sourceTree = "<group>"; };
+		31811DCB29022EAA00B0F154 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		3189F37228FCE74400030CD4 /* FavoriteBookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBookCollectionViewCell.swift; sourceTree = "<group>"; };
+		3189F37428FD04AD00030CD4 /* FavoriteAuthorsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAuthorsCollectionViewCell.swift; sourceTree = "<group>"; };
+		31906AF928FD596D00BD2BEA /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		31E06E3D28FE28690089EA6D /* LibraryBooksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryBooksTableViewCell.swift; sourceTree = "<group>"; };
+		31E06E3F28FE3FBE0089EA6D /* BookInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoViewController.swift; sourceTree = "<group>"; };
+		31E06E4128FE41390089EA6D /* BookInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoView.swift; sourceTree = "<group>"; };
+		31E06E4328FEAC120089EA6D /* SSImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSImageView.swift; sourceTree = "<group>"; };
+		31E06E4528FEB1930089EA6D /* SSScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSScrollView.swift; sourceTree = "<group>"; };
+		31E06E4728FEB1990089EA6D /* SSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSView.swift; sourceTree = "<group>"; };
 		31EAA18E28FB7CEE00F95DCB /* SSBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31EAA19128FB7CEE00F95DCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31EAA19328FB7CEE00F95DCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		31EAA19528FB7CEE00F95DCB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		31EAA19528FB7CEE00F95DCB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		31EAA19A28FB7CEF00F95DCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31EAA19D28FB7CEF00F95DCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31EAA19F28FB7CEF00F95DCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -29,12 +82,168 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				310ADD1428FB7E8C00DB748B /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31028C3B2903A49B001D61D8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				31028C3D2903A4D1001D61D8 /* CornerRadius.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		31028C3C2903A4A3001D61D8 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				31811DBA2900FE8D00B0F154 /* DesignSystem */,
+				31028C3B2903A49B001D61D8 /* Extensions */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		310ADD1E28FC30DE00DB748B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				31811DC6290103DA00B0F154 /* Models */,
+				31EAA19528FB7CEE00F95DCB /* HomeViewController.swift */,
+				310ADD1F28FC311300DB748B /* HomeView.swift */,
+				31811DC42901036400B0F154 /* HomeViewModel.swift */,
+				31811DCB29022EAA00B0F154 /* HomeService.swift */,
+				31811DC1290100A600B0F154 /* MyBooks */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		310ADD2528FC441E00DB748B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				310ADD2628FC445200DB748B /* SSButton.swift */,
+				310ADD2F28FCCD0B00DB748B /* SSLabel.swift */,
+				31E06E4328FEAC120089EA6D /* SSImageView.swift */,
+				31E06E4528FEB1930089EA6D /* SSScrollView.swift */,
+				31E06E4728FEB1990089EA6D /* SSView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		310ADD2828FC48A300DB748B /* Roboto */ = {
+			isa = PBXGroup;
+			children = (
+				310ADD2928FC48A300DB748B /* Roboto-Medium.ttf */,
+				310ADD2A28FC48A300DB748B /* Roboto-Regular.ttf */,
+				310ADD2B28FC48A300DB748B /* Roboto-Bold.ttf */,
+			);
+			path = Roboto;
+			sourceTree = "<group>";
+		};
+		31811DBA2900FE8D00B0F154 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				310ADD2528FC441E00DB748B /* Components */,
+				31811DBB2900FE9800B0F154 /* Fonts */,
+				31EAA19A28FB7CEF00F95DCB /* Assets.xcassets */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		31811DBB2900FE9800B0F154 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				310ADD2828FC48A300DB748B /* Roboto */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		31811DBC2900FEB800B0F154 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				310ADD1728FB7EB300DB748B /* HomeViewController.graphql */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		31811DBD2900FECE00B0F154 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				31EAA19128FB7CEE00F95DCB /* AppDelegate.swift */,
+				31EAA19328FB7CEE00F95DCB /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		31811DBE2900FED900B0F154 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				310ADD1E28FC30DE00DB748B /* Home */,
+				31811DC02901006300B0F154 /* Dummy */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		31811DBF2900FF3700B0F154 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				31028C3929037B70001D61D8 /* API.swift */,
+				310ADD1528FB7EA800DB748B /* schema.json */,
+				31EAA19C28FB7CEF00F95DCB /* LaunchScreen.storyboard */,
+				31EAA19F28FB7CEF00F95DCB /* Info.plist */,
+			);
+			name = Files;
+			sourceTree = "<group>";
+		};
+		31811DC02901006300B0F154 /* Dummy */ = {
+			isa = PBXGroup;
+			children = (
+				310ADD1C28FC14C000DB748B /* DummyViewController.swift */,
+				310ADD2328FC31C100DB748B /* DummyView.swift */,
+			);
+			path = Dummy;
+			sourceTree = "<group>";
+		};
+		31811DC1290100A600B0F154 /* MyBooks */ = {
+			isa = PBXGroup;
+			children = (
+				310ADD2128FC317400DB748B /* MyBooksView.swift */,
+				31811DC32901033200B0F154 /* Cells */,
+				31811DC22901030F00B0F154 /* BookInfo */,
+			);
+			path = MyBooks;
+			sourceTree = "<group>";
+		};
+		31811DC22901030F00B0F154 /* BookInfo */ = {
+			isa = PBXGroup;
+			children = (
+				31E06E3F28FE3FBE0089EA6D /* BookInfoViewController.swift */,
+				31E06E4128FE41390089EA6D /* BookInfoView.swift */,
+			);
+			path = BookInfo;
+			sourceTree = "<group>";
+		};
+		31811DC32901033200B0F154 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3189F37228FCE74400030CD4 /* FavoriteBookCollectionViewCell.swift */,
+				3189F37428FD04AD00030CD4 /* FavoriteAuthorsCollectionViewCell.swift */,
+				31906AF928FD596D00BD2BEA /* CategoryCollectionViewCell.swift */,
+				31E06E3D28FE28690089EA6D /* LibraryBooksTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		31811DC6290103DA00B0F154 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				31811DC7290103E100B0F154 /* BookModel.swift */,
+				31811DC9290103FC00B0F154 /* AuthorModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		31EAA18528FB7CEE00F95DCB = {
 			isa = PBXGroup;
 			children = (
@@ -54,12 +263,11 @@
 		31EAA19028FB7CEE00F95DCB /* SSBook */ = {
 			isa = PBXGroup;
 			children = (
-				31EAA19128FB7CEE00F95DCB /* AppDelegate.swift */,
-				31EAA19328FB7CEE00F95DCB /* SceneDelegate.swift */,
-				31EAA19528FB7CEE00F95DCB /* ViewController.swift */,
-				31EAA19A28FB7CEF00F95DCB /* Assets.xcassets */,
-				31EAA19C28FB7CEF00F95DCB /* LaunchScreen.storyboard */,
-				31EAA19F28FB7CEF00F95DCB /* Info.plist */,
+				31811DBD2900FECE00B0F154 /* AppDelegate */,
+				31811DBE2900FED900B0F154 /* Scenes */,
+				31811DBC2900FEB800B0F154 /* Network */,
+				31028C3C2903A4A3001D61D8 /* Infrastructure */,
+				31811DBF2900FF3700B0F154 /* Files */,
 			);
 			path = SSBook;
 			sourceTree = "<group>";
@@ -71,6 +279,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 31EAA1A228FB7CEF00F95DCB /* Build configuration list for PBXNativeTarget "SSBook" */;
 			buildPhases = (
+				310ADD1928FB7EE900DB748B /* Generate GraphQL API */,
 				31EAA18A28FB7CEE00F95DCB /* Sources */,
 				31EAA18B28FB7CEE00F95DCB /* Frameworks */,
 				31EAA18C28FB7CEE00F95DCB /* Resources */,
@@ -80,6 +289,9 @@
 			dependencies = (
 			);
 			name = SSBook;
+			packageProductDependencies = (
+				310ADD1328FB7E8C00DB748B /* Apollo */,
+			);
 			productName = SSBook;
 			productReference = 31EAA18E28FB7CEE00F95DCB /* SSBook.app */;
 			productType = "com.apple.product-type.application";
@@ -108,6 +320,9 @@
 				Base,
 			);
 			mainGroup = 31EAA18528FB7CEE00F95DCB;
+			packageReferences = (
+				310ADD1228FB7E8C00DB748B /* XCRemoteSwiftPackageReference "apollo-ios" */,
+			);
 			productRefGroup = 31EAA18F28FB7CEE00F95DCB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -122,21 +337,68 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				310ADD2E28FC48A300DB748B /* Roboto-Bold.ttf in Resources */,
+				310ADD2D28FC48A300DB748B /* Roboto-Regular.ttf in Resources */,
+				310ADD2C28FC48A300DB748B /* Roboto-Medium.ttf in Resources */,
 				31EAA19E28FB7CEF00F95DCB /* LaunchScreen.storyboard in Resources */,
+				310ADD1628FB7EA800DB748B /* schema.json in Resources */,
 				31EAA19B28FB7CEF00F95DCB /* Assets.xcassets in Resources */,
+				310ADD1828FB7EB300DB748B /* HomeViewController.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		310ADD1928FB7EE900DB748B /* Generate GraphQL API */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate GraphQL API";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Don't run this during index builds\nif [ $ACTION = \"indexbuild\" ]; then exit 0; fi\n\n# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n# Grab a reference to the directory where scripts are checked out\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		31EAA18A28FB7CEE00F95DCB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31EAA19628FB7CEE00F95DCB /* ViewController.swift in Sources */,
+				310ADD3028FCCD0B00DB748B /* SSLabel.swift in Sources */,
+				31E06E4028FE3FBE0089EA6D /* BookInfoViewController.swift in Sources */,
+				31EAA19628FB7CEE00F95DCB /* HomeViewController.swift in Sources */,
+				31811DC52901036400B0F154 /* HomeViewModel.swift in Sources */,
 				31EAA19228FB7CEE00F95DCB /* AppDelegate.swift in Sources */,
+				31811DC8290103E100B0F154 /* BookModel.swift in Sources */,
+				310ADD2028FC311300DB748B /* HomeView.swift in Sources */,
+				310ADD1D28FC14C100DB748B /* DummyViewController.swift in Sources */,
+				31906AFA28FD596D00BD2BEA /* CategoryCollectionViewCell.swift in Sources */,
+				31811DCA290103FC00B0F154 /* AuthorModel.swift in Sources */,
+				310ADD2228FC317400DB748B /* MyBooksView.swift in Sources */,
+				31E06E4428FEAC120089EA6D /* SSImageView.swift in Sources */,
+				31E06E3E28FE28690089EA6D /* LibraryBooksTableViewCell.swift in Sources */,
+				31E06E4828FEB1990089EA6D /* SSView.swift in Sources */,
+				31028C3E2903A4D1001D61D8 /* CornerRadius.swift in Sources */,
 				31EAA19428FB7CEE00F95DCB /* SceneDelegate.swift in Sources */,
+				31028C3A29037B70001D61D8 /* API.swift in Sources */,
+				3189F37328FCE74400030CD4 /* FavoriteBookCollectionViewCell.swift in Sources */,
+				31E06E4628FEB1930089EA6D /* SSScrollView.swift in Sources */,
+				31811DCC29022EAA00B0F154 /* HomeService.swift in Sources */,
+				310ADD2428FC31C100DB748B /* DummyView.swift in Sources */,
+				310ADD2728FC445200DB748B /* SSButton.swift in Sources */,
+				3189F37528FD04AD00030CD4 /* FavoriteAuthorsCollectionViewCell.swift in Sources */,
+				31E06E4228FE41390089EA6D /* BookInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +608,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		310ADD1228FB7E8C00DB748B /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.50.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		310ADD1328FB7E8C00DB748B /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 310ADD1228FB7E8C00DB748B /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 31EAA18628FB7CEE00F95DCB /* Project object */;
 }
